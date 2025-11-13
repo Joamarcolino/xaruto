@@ -1,4 +1,5 @@
 import React from 'react';
+import imagemxaruto from "../Images/imagemxaruto.jpg"
 
 const Tempomes = () => {
     return (
@@ -16,7 +17,6 @@ const Navbar = () => {
         <header className="cabecario">
             <div className="xarutodiv">
                 <div className="xarutodiv2">
-                    <img src="/logo.png" alt="Xaruto Logo" className="logo" />
                     <div className='xarutodiv3'>
                     <h1 className="xarutotitulo">Xaruto</h1>
                     <p className="subtitulo">Controle Financeiro Inteligente</p>
