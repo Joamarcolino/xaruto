@@ -1,11 +1,11 @@
 'use client'
-import { useState } from "react"
+
+import GraficoPizza from "./Components/graficopizza"
+import Navbarzin from "./Components/navbar"
 export default function Home(){
   return(
     <div>
-      <main>
-        hello world
-      </main>
+      <Navbarzin/>
     </div>
   )
 }

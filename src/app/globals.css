@@ -1,16 +1,128 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
+* {
+    box-sizing: border-box;
+    margin: 0;
 }
-body{
-  min-height: 100vh;
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-main{
-  min-height: 100vh;
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cabecario {
+    display: flex;
+    background: linear-gradient(135deg, rgb(30,25,19) 0%, rgb(37, 31, 24) 100%);
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    z-index: 999;
+    box-shadow:0px 3px 1px rgb(77,66,51);
+    padding:0 20px;
+    padding-left: 2rem;
+    height: 110px;
+}
+
+.xarutodiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:0;
+}
+
+.xarutodiv2 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.xarutotitulo {
+    color: white;
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitulo {
+  color: transparent;
+  background-clip: text;
+    font-size: 0.9rem;
+    background-color:rgb(189, 181, 164) ;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tempomes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a5f5f;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tempomes:hover {
+    background-color: #4a6f6f;
+}
+
+.tempomes svg {
+    width: 24px;
+    height: 24px;
+}
+
+.graficoPizza{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-self: center;
+  margin-top: 300px ;
+  align-self: flex-start;
+  border: solid red 1px;
 }
-.pages{
-  
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cabecario {
+        padding: 0 15px;
+        height: 70px;
+    }
+    
+    .xarutodiv2 {
+        gap: 10px;
+    }
+    
+    .xarutotitulo {
+        font-size: 1.5rem;
+    }
+    
+    .subtitulo {
+        font-size: 0.8rem;
+    }
+    
+    .logo {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .xarutotitulo {
+        font-size: 1.3rem;
+    }
 }
