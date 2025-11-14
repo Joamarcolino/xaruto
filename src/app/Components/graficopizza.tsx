@@ -7,11 +7,12 @@ interface Item {
 
 interface Props {
     raio: number;
+    tamanho: number;
     partes: Item[];
     id: string;
 }
 
-export default function GraficoPizza({ id, raio, partes }: Props) {
+export default function GraficoPizza({ id, raio, tamanho, partes }: Props) {
     let total = 0;
 
     partes.forEach(item => {
@@ -24,28 +25,51 @@ export default function GraficoPizza({ id, raio, partes }: Props) {
         if (!canva) return
         const ctx = canva.getContext("2d") as CanvasRenderingContext2D;
         if (!ctx) return
-        
-            let cor = "rgb"
-            let comeco = 0;
-            let porcento = 0;
+
+        let cor = "rgb"
+        let comeco = 0;
+        let porcento = 0;
+        ctx.clearRect(0, 0, raio * 2 + 20, raio * 2 + 20)
+        partes.forEach(item => {
+            porcento = (Math.round((item.valor / total) * 100) / 100)
+            cor = "rgb(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ")"
+
             ctx.beginPath()
-            partes.forEach(item => {
-                porcento = (Math.round((item.valor / total) * 100) / 100)
-                cor = "rgb(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ")"
-                ctx.clearRect(0, 0, raio*2 + 20, raio*2 + 20)
-                ctx.fillStyle = cor
-                ctx.arc(raio + 10, raio + 10, raio, 0,
-                    comeco + (2*Math.PI)*porcento)
-                ctx.lineWidth = 5;
-                ctx.strokeStyle = cor;
+            ctx.lineWidth = 5
+            ctx.fillStyle = cor
+            ctx.strokeStyle = cor
+            ctx.arc(tamanho/2, tamanho/2, raio, comeco, comeco + (Math.PI * 2) * porcento)
 
-                ctx.font = "35px Arial";
-                ctx.fillText(item.nome, raio + (Math.cos(comeco)*50), raio + (Math.sin(comeco)*50))
-                comeco += (2*Math.PI)*porcento
-            });//desenhar grafico.
+            ctx.moveTo( tamanho/2 + Math.cos( comeco ) * raio, tamanho/2 + Math.sin( comeco) * raio )
+            ctx.lineTo( tamanho/2, tamanho/2 )
+            ctx.lineTo( tamanho/2 + Math.cos(comeco + ((Math.PI * 2) * porcento)) * raio, tamanho/2 + Math.sin(comeco + ((Math.PI * 2) * porcento)) * raio )
+            ctx.lineTo( tamanho/2 + Math.cos( comeco ) * raio, tamanho/2 + Math.sin( comeco) * raio )
+
             ctx.stroke()
-//      <GraficoPizza id={"graficoPizza"} raio={120} partes={ [{ nome:"hi", valor:20}, {nome:"bye", valor:50}] } />   <------ teu código desgraça
-    })
+            ctx.fill()
+            ctx.closePath()
 
-    return <canvas className={id} width={raio * 2 + 20} height={raio * 2 + 20} ref={canvaRef} />
+            ctx.lineWidth = 1
+            ctx.fillStyle = "rgb(255,255,255)";
+            ctx.font = "35px Arial";
+            ctx.fillText(item.nome,
+                tamanho/2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
+                tamanho/2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
+                ctx.strokeText(item.nome,
+                tamanho/2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
+                tamanho/2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
+            comeco += ((Math.PI * 2) * porcento)
+        });//desenhar grafico.
+        ctx.beginPath()
+        ctx.fillStyle="white"
+        ctx.arc(tamanho/2, tamanho/2, raio/2, 0, Math.PI*2)
+        ctx.stroke()
+        ctx.fill()
+        ctx.closePath()
+
+        partes.forEach(item => {
+            
+        })
+    })
+    return <canvas className={id} width={tamanho} height={tamanho} ref={canvaRef} />
 }

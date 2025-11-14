@@ -1,324 +1,397 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-        }
+body {
+    min-height: 100vh;
+    background-color: rgb(29, 21, 11);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0d6c8;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        body {
-            min-height: 100vh;
-            background-color: rgb(29, 21, 11);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #e0d6c8;
-            line-height: 1.6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
 
-        main {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
+.corpo {
+    min-height: 100vh;
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
 
-        .corpo {
-            min-height: 100vh;
-            display: flex;
-            text-align: center;
-            justify-content: flex-start;
-            flex-direction: column;
-            width: 100%;
-        }
-        .encapsulador{
-            width: 100%;
-        }
+.encapsulador {
+    width: 100%;
+}
 
-        .cabecario {
-            display: flex;
-           background:linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20)) ;
-            justify-content: space-between;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            align-items: center;
-            z-index: 999;
-            box-shadow: 0px 0px 30px rgb(22, 22, 22);
-            border-bottom: solid rgb(88, 50, 24) 1px;
-            padding: 0 clamp(1rem, 3vw, 2rem);
-            height: clamp(70px, 12vw, 110px);
-            transition: height 0.3s ease;
-        }
+.cabecario {
+    display: flex;
+    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0px 0px 30px rgb(22, 22, 22);
+    border-bottom: solid rgb(88, 50, 24) 1px;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    height: clamp(70px, 12vw, 110px);
+    transition: 0.3s ease;
+}
 
-        .xarutodiv {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.xarutodiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
-        .xarutodiv2 {
-            display: flex;
-            align-items: center;
-            gap: clamp(8px, 2vw, 15px);
-            flex-wrap: wrap;
-        }
+.xarutodiv2 {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 15px);
+    flex-wrap: wrap;
+}
 
-        .xarutotitulo {
-            color: transparent;
-            background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
-            background-clip: text;
-            font-size: clamp(1.5rem, 4vw, 2.1rem);
-            font-weight: bold;
-            margin: 0;
-            line-height: 1.2;
-        }
+.xarutotitulo {
+    color: transparent;
+    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    background-clip: text;
+    font-size: clamp(1.5rem, 4vw, 2.1rem);
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
 
-        .subtitulo {
-            color: transparent;
-            background-clip: text;
-            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-            background-color: rgb(189, 181, 164);
-            font-weight: bold;
-            margin: 0;
-        }
+.subtitulo {
+    color: transparent;
+    background-clip: text;
+    font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+    background-color: rgb(189, 181, 164);
+    font-weight: bold;
+    margin: 0;
+}
 
-        .valoresstats .subtitulo {
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-        }
+.valoresstats .subtitulo {
+    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+}
 
-        .tempomes {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #3a5f5f;
-            border-radius: 8px;
-            padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-height: 40px;
-        }
+.tempomes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a5f5f;
+    border-radius: 8px;
+    padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 40px;
+}
 
-        .tempomes:hover {
-            background-color: #4a6f6f;
-            transform: translateY(-2px);
-        }
+.tempomes:hover {
+    background-color: #4a6f6f;
+    transform: translateY(-2px);
+}
 
-        .tempomes svg {
-            width: clamp(20px, 5vw, 24px);
-            height: clamp(20px, 5vw, 24px);
-        }
+.tempomes svg {
+    width: clamp(20px, 5vw, 24px);
+    height: clamp(20px, 5vw, 24px);
+}
 
-        .graficoPizza {
-            display: flex;
-            justify-content: center;
-            margin-top: clamp(150px, 25vw, 300px);
-            width: 100%;
-        }
+.graficoPizza {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(150px, 25vw, 300px);
+    width: 100%;
+}
 
-        .espacinho {
-            height: clamp(70px, 12vw, 110px);
-            width: 100%;
-        }
+.espacinho {
+    height: clamp(70px, 12vw, 110px);
+    width: 100%;
+}
 
-        .caixa {
-            max-width: 100%;
-            width: 100%;
-            background-color: transparent;
-            gap: none;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            display: flex;
-            align-self: flex-start;
-            justify-self: flex-start;
-            flex-direction: row;
-            border-radius: 1rem;
-        }
-        .formdeadicionarcaixa{
-            min-height: 100vh;
-            background:linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20)) ;
-            width: 97%;
-            border-radius: 1rem;
-            display: flex;
-            padding: 3rem;
-            flex-direction: row;
-            gap:1rem;
-            margin: 1rem;
-        }
-        :hover {
-            transform: none;
-        }
+.caixa {
+    max-width: 100%;
+    width: 100%;
+    background-color: transparent;
+    gap: none;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    align-self: flex-start;
+    justify-self: flex-start;
+    flex-direction: row;
+    border-radius: 1rem;
+}
+.inputhorario{
+    margin: 0.4rem 0;
+}
 
-        .valoresstats {
-            background:linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20)) ;
-            display: flex;
-            border: solid rgb(88, 50, 24) 1px;
-            padding: clamp(0.8rem, 2.5vw, 1.5rem);
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-            max-width: 500px;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            text-align: justify;
-            transition: all 1s ease;
-            min-height: auto;
-            flex-direction: column;
-            border-radius: 1.5rem;
-            overflow: hidden;
-            scale:0.9;
-        }
+.formdeadicionarcaixa {
+    min-height: 33%;
+    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
+    width: 97%;
+    border: solid rgb(102, 59, 30) 2px;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 1s ease-in-out;
+    gap: 1rem;
+    margin: 1rem;
 
-        .valoresstats:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
-        }
+}
+.formdeadicionarcaixa:hover{
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
+    scale: 1.02;
+}
+.formdeadicionarinput{
+    width: 100%;
+    background: linear-gradient(to top right, rgb(255,248,220), rgb(228, 221, 192));
+    color: rgb(153, 139, 108);
+    border-radius: 0.5rem;
+    border: solid rgb(145, 139, 117) 2px;
+    margin: 0.3rem;
+}
+.formdeadicionarcaixa2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
 
-        .valoresstats h1 {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-family: sans-serif;
-        }
+}
+.formdeadicionarcaixa3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right:1rem;
+    flex-direction: row;
+}
+.formdeadicionarcaixa3 button{
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    background: linear-gradient(to top right, rgb(255,248,220), rgb(228, 221, 192));
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    border-radius: 0.8rem;
+    border: solid rgb(145, 139, 117) 2px;
 
-        .formdeadicionar {
-            flex-direction: column;
-            width: 100%;
-        }
+}
+.formdeadicionarcaixa3 button:hover{
+    scale: 1.01;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+:hover {
+    transform: none;
+}
+.formdeadicionarcaixa section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;   
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.formdeadicionarcaixa section label{
+    display: flex;
+    font-size: 0.9rem;
+    color: rgb(199, 189, 172);
+    flex-direction: row;
+}
+.valoresstats {
+    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
+    display: flex;
+    border: solid rgb(102, 59, 30) 2px;
+    padding: clamp(0.8rem, 2.5vw, 1.5rem);
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    text-align: justify;
+    transition: all 1s ease;
+    min-height: auto;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    scale: 0.9;
+}
 
-        .criartransacoes {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            width: 100%;
-            flex-direction: column;
-        }
+.valoresstats:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
+}
+.formdeadicionarcaixaencapsular{
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.valoresstats h1 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-family: sans-serif;
+}
 
-        select, input {
-            background-color: white;
-            padding: clamp(0.4rem, 1.5vw, 0.6rem);
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            width: 100%;
-            margin-bottom: 0.5rem;
-            font-size: clamp(0.8rem, 1.8vw, 1rem);
-        }
+.formdeadicionar {
+    flex-direction: column;
+    width: 100%;
+    min-height: 0.01rem;
+}
 
-        .valoresstats p {
-            color: transparent;
-            background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
-            background-clip: text;
-            font-weight: bold;
-            display: flex;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            align-self: flex-start;
-            justify-content: flex-start;
-        }
 
-        .saldonegativo {
-            color: #ff6b6b;
-            margin-right: 1rem;
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-            text-shadow: 0px 0px 3px #ff6b6b;
+.criartransacoes {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    flex-direction: column;
+}
 
-            font-family: sans-serif;
-        }
+select,
+input {
+    background-color: white;
+    padding: clamp(0.4rem, 1.5vw, 0.6rem);
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.8rem, 1.8vw, 1rem);
+}
 
-        .saldopositivo {
-            color: #51cf66;
-            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-            text-shadow: 0px 0px 2px #51cf66;
-            font-family: sans-serif;
-            text-shadow: 0px 0px 3px lime;
-        }
+.valoresstats p {
+    color: transparent;
+    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    background-clip: text;
+    font-weight: bold;
+    display: flex;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    align-self: flex-start;
+    justify-content: flex-start;
+}
 
-        /* Container para os cards de estatísticas */
-        .caixa span {
-            transition: 0.3s;
-        }
+.saldonegativo {
+    color: #ff6b6b;
+    margin-right: 1rem;
+    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    text-shadow: 0px 0px 3px #ff6b6b;
+    font-family: sans-serif;
+}
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .cabecario {
-                padding: 0 10px;
-                height: 70px;
-            }
+.saldopositivo {
+    color: #51cf66;
+    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    text-shadow: 0px 0px 2px #51cf66;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 3px lime;
+}
 
-            .xarutodiv {
-                justify-content: space-between;
-            }
+/* Container para os cards de estatísticas */
+.caixa span {
+    transition: 0.3s;
+}
 
-            .xarutodiv2 {
-                gap: 8px;
-            }
+/* Media Queries */
+@media (max-width: 768px) {
+    .cabecario {
+        padding: 0 10px;
+        height: 70px;
+    }
 
-            .menu-toggle {
-                display: flex;
-            }
+    .xarutodiv {
+        justify-content: space-between;
+    }
 
-            .tempomes span {
-                display: none;
-            }
+    .xarutodiv2 {
+        gap: 8px;
+    }
 
-            .caixa {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                margin-bottom: 2rem;
-            }
+    .menu-toggle {
+        display: flex;
+    }
 
-            .stats-container {
-                grid-template-columns: 1fr;
-                padding: 0.5rem;
-            }
-            .valoresstats{
-                max-width: 100%;
-            }
-        }
+    .tempomes span {
+        display: none;
+    }
 
-        @media (max-width: 480px) {
-            .cabecario {
-                height: 60px;
-                padding: 0 8px;
-            }
+    .caixa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+    .valoresstats {
+        max-width: 100%;
 
-            .xarutotitulo {
-                font-size: 1.3rem;
-            }
+    }
+}
 
-            .subtitulo {
-                font-size: 0.7rem;
-            }
+@media (max-width: 480px) {
+    .cabecario {
+        height: 60px;
+        padding: 0 8px;
+    }
 
-            .valoresstats {
-                width: 100%;
-                border-radius: 1rem;
-                scale: 0.9;
-            }
-            .formdeadicionarcaixa{
-                width: 100%;
-                border-radius: 1rem;
-                scale: 0.9;
-            }
+    .xarutotitulo {
+        font-size: 1.3rem;
+    }
 
-            .espacinho {
-                height: 60px;
-            }
+    .subtitulo {
+        font-size: 0.7rem;
+    }
 
-            .graficoPizza {
-                margin-top: 120px;
-            }
-        }
+    .valoresstats {
+        width: 100%;
+        border-radius: 1rem;
+        scale: 0.9;
+    }
 
-        @media (min-width: 1200px) {
-            #caixastats {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .valoresstats {
-                width: 100%;
-            }
-        }
+    .formdeadicionarcaixa {
+        width: 100%;
+        border-radius: 1rem;
+        scale: 0.9;
+    }
+
+    .espacinho {
+        height: 60px;
+    }
+
+    .graficoPizza {
+        margin-top: 120px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #caixastats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .valoresstats {
+        width: 100%;
+    }
+}
