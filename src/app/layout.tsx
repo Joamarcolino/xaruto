@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Xaruto",
+  title: "Xaruto - Controle Financeiro Inteligente",
   description: "Controle financeiro inteligente.",
   
 };

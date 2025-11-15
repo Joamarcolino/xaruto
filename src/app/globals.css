@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    font-family: monospace;
 }
 
 body {
@@ -10,6 +11,7 @@ body {
     color: #e0d6c8;
     line-height: 1.6;
     display: flex;
+    scrollbar-width: 0;
     align-items: center;
     justify-content: center;
 }
@@ -127,10 +129,8 @@ main {
 }
 
 .caixa {
-    max-width: 100%;
     width: 100%;
     background-color: transparent;
-    gap: none;
     overflow: hidden;
     transition: all 0.5s ease;
     display: flex;
@@ -139,15 +139,16 @@ main {
     flex-direction: row;
     border-radius: 1rem;
 }
-.inputhorario{
+
+.inputhorario {
     margin: 0.4rem 0;
 }
 
 .formdeadicionarcaixa {
     min-height: 33%;
-    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
     width: 97%;
-    border: solid rgb(102, 59, 30) 2px;
+    background: linear-gradient(to top left, rgb(32, 21, 7), rgb(80, 53, 20));
+    border: solid rgb(71, 41, 22) 2px;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -156,19 +157,50 @@ main {
     margin: 1rem;
 
 }
-.formdeadicionarcaixa:hover{
-    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
-    scale: 1.02;
-}
-.formdeadicionarinput{
+
+.formdeadicionar3encapsulador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    background: linear-gradient(to top right, rgb(255,248,220), rgb(228, 221, 192));
-    color: rgb(153, 139, 108);
+    flex-direction: column;
+}
+
+.formdeadicionarcaixa3 div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    text-align: center;
+    height: 10rem;
+    flex-direction: row;
+}
+.formdeadicionarinput::placeholder{
+    color:rgb(153, 139, 108);
+}
+.formdeadicionarinput {
+    width: 100%;
+    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
+    color: black;
     border-radius: 0.5rem;
     border: solid rgb(145, 139, 117) 2px;
     margin: 0.3rem;
 }
-.formdeadicionarcaixa2{
+
+.formdeadicionarcaixa h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: monospace;
+    margin: 0.5rem 1rem;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: transparent;
+    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    background-clip: text;
+}
+
+.formdeadicionarcaixa2 {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -176,7 +208,8 @@ main {
     width: 100%;
 
 }
-.formdeadicionarcaixa3{
+
+.formdeadicionarcaixa3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,42 +217,74 @@ main {
     gap: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
-    margin-right:1rem;
+    margin-right: 1rem;
     flex-direction: row;
 }
-.formdeadicionarcaixa3 button{
-    font-size: 1.2rem;
-    padding: 0.8rem;
-    background: linear-gradient(to top right, rgb(255,248,220), rgb(228, 221, 192));
-    transition: all 0.3s ease-in-out;
+
+.formdeadicionarcaixa3 button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
     width: 100%;
-    border-radius: 0.8rem;
-    border: solid rgb(145, 139, 117) 2px;
+    font-weight: bolder;
+    border-radius: 0.5rem;
+}
+
+.valoresstats img {
+    display: flex;
+    margin-left: 11rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 3rem;
+    padding: 0.3rem;
+    align-self: flex-end;
+}
+
+.valoresstats section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.formdeadicionar .despesas {
+    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
+}
+.despesas{
+    border: solid black 2px;
+    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
 
 }
-.formdeadicionarcaixa3 button:hover{
-    scale: 1.01;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+.receitas {
+    border: solid black 2px;
+    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
 }
+
+.formdeadicionarcaixa3 button:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
 :hover {
     transform: none;
 }
-.formdeadicionarcaixa section{
+
+.formdeadicionarcaixa section {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
     text-align: center;
-    flex-direction: column;   
+    flex-direction: column;
     margin-right: 1rem;
     margin-left: 1rem;
 }
-.formdeadicionarcaixa section label{
+
+.formdeadicionarcaixa section label {
     display: flex;
     font-size: 0.9rem;
     color: rgb(199, 189, 172);
     flex-direction: row;
 }
+
 .valoresstats {
     background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
     display: flex;
@@ -234,7 +299,8 @@ main {
     transition: all 1s ease;
     min-height: auto;
     flex-direction: column;
-    border-radius: 1.5rem;
+    height: 7.8rem;
+    border-radius: 0.8rem;
     overflow: hidden;
     scale: 0.9;
 }
@@ -243,7 +309,8 @@ main {
     transform: scale(1.02);
     box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
 }
-.formdeadicionarcaixaencapsular{
+
+.formdeadicionarcaixaencapsular {
     width: 100%;
     margin-left: 1rem;
     margin-right: 1rem;
@@ -252,8 +319,9 @@ main {
     align-items: center;
     flex-direction: column;
 }
+
 .valoresstats h1 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: 1rem;
     font-family: sans-serif;
 }
 
@@ -262,7 +330,6 @@ main {
     width: 100%;
     min-height: 0.01rem;
 }
-
 
 .criartransacoes {
     display: flex;
@@ -274,13 +341,22 @@ main {
 
 select,
 input {
-    background-color: white;
     padding: clamp(0.4rem, 1.5vw, 0.6rem);
     border-radius: 4px;
     border: 1px solid #ccc;
     width: 100%;
     margin-bottom: 0.5rem;
     font-size: clamp(0.8rem, 1.8vw, 1rem);
+}
+
+#receitacomcor {
+    background: linear-gradient(to top right, lime, green);
+    color: white;
+}
+
+#despesacomcor {
+    color: white;
+    background: linear-gradient(to top right, red, darkred)
 }
 
 .valoresstats p {
@@ -295,8 +371,9 @@ input {
 }
 
 .saldonegativo {
+    position: fixed;
+    top: 70px;
     color: #ff6b6b;
-    margin-right: 1rem;
     font-size: clamp(0.7rem, 1.8vw, 0.9rem);
     text-shadow: 0px 0px 3px #ff6b6b;
     font-family: sans-serif;
@@ -304,10 +381,34 @@ input {
 
 .saldopositivo {
     color: #51cf66;
+    position: fixed;
+    top: 70px;
     font-size: clamp(0.7rem, 1.8vw, 0.9rem);
     text-shadow: 0px 0px 2px #51cf66;
     font-family: sans-serif;
     text-shadow: 0px 0px 3px lime;
+}
+
+.adicionar {
+    max-width: 5%;
+    border: none;
+    transition: none;
+    height: 3rem;
+    background-color: rgb(2, 194, 2);
+    color: white;
+    font-family: monospace;
+}
+.adicionar:hover {
+    scale: 1.1;
+    text-shadow: none;
+    background: linear-gradient(to bottom left, lime, lime, green, green);
+}
+
+.adicionar:active {
+    scale: 0.99;
+    border: none;
+    color: rgb(209, 202, 202);
+    background: linear-gradient(to bottom left, rgb(3, 216, 3), rgb(3, 216, 3), rgb(0, 105, 0), rgb(0, 105, 0));
 }
 
 /* Container para os cards de estatísticas */
@@ -317,11 +418,6 @@ input {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .cabecario {
-        padding: 0 10px;
-        height: 70px;
-    }
-
     .xarutodiv {
         justify-content: space-between;
     }
@@ -330,8 +426,9 @@ input {
         gap: 8px;
     }
 
-    .menu-toggle {
-        display: flex;
+    .adicionar {
+        max-width: 10%;
+        border: solid black 1.3px;
     }
 
     .tempomes span {
@@ -343,11 +440,21 @@ input {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 2rem;
     }
+
     .valoresstats {
         max-width: 100%;
+        scale: 0.95;
+    }
 
+    .formdeadicionar {
+        scale: 1;
+    }
+
+    .valoresstats img {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 3rem;
+        padding: 0.3rem;
     }
 }
 
@@ -368,13 +475,13 @@ input {
     .valoresstats {
         width: 100%;
         border-radius: 1rem;
-        scale: 0.9;
+        scale: 0.95;
     }
 
     .formdeadicionarcaixa {
         width: 100%;
         border-radius: 1rem;
-        scale: 0.9;
+        scale: 0.95;
     }
 
     .espacinho {

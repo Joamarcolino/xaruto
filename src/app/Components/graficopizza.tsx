@@ -38,12 +38,12 @@ export default function GraficoPizza({ id, raio, tamanho, partes }: Props) {
             ctx.lineWidth = 5
             ctx.fillStyle = cor
             ctx.strokeStyle = cor
-            ctx.arc(tamanho/2, tamanho/2, raio, comeco, comeco + (Math.PI * 2) * porcento)
+            ctx.arc(tamanho / 2, tamanho / 2, raio, comeco, comeco + (Math.PI * 2) * porcento)
 
-            ctx.moveTo( tamanho/2 + Math.cos( comeco ) * raio, tamanho/2 + Math.sin( comeco) * raio )
-            ctx.lineTo( tamanho/2, tamanho/2 )
-            ctx.lineTo( tamanho/2 + Math.cos(comeco + ((Math.PI * 2) * porcento)) * raio, tamanho/2 + Math.sin(comeco + ((Math.PI * 2) * porcento)) * raio )
-            ctx.lineTo( tamanho/2 + Math.cos( comeco ) * raio, tamanho/2 + Math.sin( comeco) * raio )
+            ctx.moveTo(tamanho / 2 + Math.cos(comeco) * raio, tamanho / 2 + Math.sin(comeco) * raio)
+            ctx.lineTo(tamanho / 2, tamanho / 2)
+            ctx.lineTo(tamanho / 2 + Math.cos(comeco + ((Math.PI * 2) * porcento)) * raio, tamanho / 2 + Math.sin(comeco + ((Math.PI * 2) * porcento)) * raio)
+            ctx.lineTo(tamanho / 2 + Math.cos(comeco) * raio, tamanho / 2 + Math.sin(comeco) * raio)
 
             ctx.stroke()
             ctx.fill()
@@ -53,22 +53,22 @@ export default function GraficoPizza({ id, raio, tamanho, partes }: Props) {
             ctx.fillStyle = "rgb(255,255,255)";
             ctx.font = "35px Arial";
             ctx.fillText(item.nome,
-                tamanho/2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
-                tamanho/2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
-                ctx.strokeText(item.nome,
-                tamanho/2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
-                tamanho/2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
+                tamanho / 2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
+                tamanho / 2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
+            ctx.strokeText(item.nome,
+                tamanho / 2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
+                tamanho / 2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
             comeco += ((Math.PI * 2) * porcento)
         });//desenhar grafico.
         ctx.beginPath()
-        ctx.fillStyle="white"
-        ctx.arc(tamanho/2, tamanho/2, raio/2, 0, Math.PI*2)
+        ctx.fillStyle = "white"
+        ctx.arc(tamanho / 2, tamanho / 2, raio / 2, 0, Math.PI * 2)
         ctx.stroke()
         ctx.fill()
         ctx.closePath()
 
         partes.forEach(item => {
-            
+
         })
     })
     return <canvas className={id} width={tamanho} height={tamanho} ref={canvaRef} />
