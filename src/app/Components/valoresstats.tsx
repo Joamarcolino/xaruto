@@ -30,9 +30,9 @@ export default function Statsandvalues({ local, moeda, receita, despesas, saldo 
                     <p>{formatador.format(saldo)}</p>
                     <Image alt={"saldo"} src={saldoImage} width={60} height={60} />
                 </section>
-                <div>
+                    <div className="saldovariacao">
                     {statusSaldo}
-                </div>
+                    </div>
             </div>
             <div className="valoresstats">
                 <h1 className="subtitulo">RECEITAS</h1>

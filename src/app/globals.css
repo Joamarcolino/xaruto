@@ -1,17 +1,18 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: monospace;
+    padding: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    user-select: none;
 }
 
 body {
     min-height: 100vh;
-    background-color: rgb(29, 21, 11);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e0d6c8;
+    background: linear-gradient(135deg, #080603 0%, #161008 50%, #1d1309 100%);
+    color: #f5e6d3;
     line-height: 1.6;
     display: flex;
-    scrollbar-width: 0;
+    scrollbar-width:none;
     align-items: center;
     justify-content: center;
 }
@@ -28,7 +29,6 @@ main {
     min-height: 100vh;
     display: flex;
     text-align: center;
-    justify-content: flex-start;
     flex-direction: column;
     width: 100%;
 }
@@ -37,9 +37,16 @@ main {
     width: 100%;
 }
 
+.categoria:hover {
+    cursor: col-resize;
+}
+
 .cabecario {
     display: flex;
-    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
+    background: linear-gradient(135deg, #2c1a08 0%, #1f1306 100%);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(120, 80, 40, 0.4);
     justify-content: space-between;
     position: fixed;
     width: 100%;
@@ -47,13 +54,14 @@ main {
     left: 0;
     align-items: center;
     z-index: 999;
-    box-shadow: 0px 0px 30px rgb(22, 22, 22);
-    border-bottom: solid rgb(88, 50, 24) 1px;
+    box-shadow: 0 0px 32px rgba(0, 0, 0, 1);
     padding: 0 clamp(1rem, 3vw, 2rem);
     height: clamp(70px, 12vw, 110px);
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
-
+option{
+    cursor: pointer;
+}
 .xarutodiv {
     width: 100%;
     display: flex;
@@ -73,42 +81,49 @@ main {
 
 .xarutotitulo {
     color: transparent;
-    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    scale: 1;
+    background: linear-gradient(135deg, #ffd700 0%, #ff8c00 50%, #daa520 100%);
     background-clip: text;
+    -webkit-background-clip: text;
     font-size: clamp(1.5rem, 4vw, 2.1rem);
-    font-weight: bold;
+    font-weight: 800;
     margin: 0;
     line-height: 1.2;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
 }
 
-.subtitulo {
+.despesas .subtitulo {
     color: transparent;
     background-clip: text;
-    font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-    background-color: rgb(189, 181, 164);
-    font-weight: bold;
+    -webkit-background-clip: text;
+    font-size: clamp(0.9rem, 1.5vw, 0.8rem);
+    background: linear-gradient(135deg, #d2b48c 0%, #bc8f8f 100%);
+    font-weight: 600;
     margin: 0;
 }
 
 .valoresstats .subtitulo {
-    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    font-size: clamp(1.3rem, 1.8vw, 0.9rem);
 }
 
 .tempomes {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3a5f5f;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #5c3713 0%, #8b4513 100%);
+    border-radius: 12px;
     padding: clamp(6px, 1.5vw, 8px) clamp(8px, 2vw, 12px);
     cursor: pointer;
     transition: all 0.3s ease;
     min-height: 40px;
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
 }
 
 .tempomes:hover {
-    background-color: #4a6f6f;
+    background: linear-gradient(135deg, #8b4513 0%, #5c3713 100%);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.5);
 }
 
 .tempomes svg {
@@ -129,15 +144,16 @@ main {
 }
 
 .caixa {
-    width: 100%;
+    width: 97%;
+    max-width: 97%;
     background-color: transparent;
     overflow: hidden;
     transition: all 0.5s ease;
     display: flex;
-    align-self: flex-start;
-    justify-self: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
-    border-radius: 1rem;
+    border-radius: 16px;
 }
 
 .inputhorario {
@@ -147,15 +163,17 @@ main {
 .formdeadicionarcaixa {
     min-height: 33%;
     width: 97%;
-    background: linear-gradient(to top left, rgb(32, 21, 7), rgb(80, 53, 20));
-    border: solid rgb(71, 41, 22) 2px;
-    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(101, 67, 33, 0.3) 0%, rgba(60, 40, 20, 0.4) 50%, rgba(40, 26, 13, 0.5) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease;
     gap: 1rem;
     margin: 1rem;
-
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
 }
 
 .formdeadicionar3encapsulador {
@@ -175,29 +193,43 @@ main {
     height: 10rem;
     flex-direction: row;
 }
-.formdeadicionarinput::placeholder{
-    color:rgb(153, 139, 108);
+
+.formdeadicionarinput::placeholder {
+    color: rgba(245, 230, 211, 0.6);
 }
+
 .formdeadicionarinput {
     width: 100%;
-    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
-    color: black;
-    border-radius: 0.5rem;
-    border: solid rgb(145, 139, 117) 2px;
+    background: linear-gradient(135deg, rgba(80, 50, 25, 0.4) 0%, rgba(60, 40, 20, 0.5) 100%);
+    backdrop-filter: blur(10px);
+    color: #f5e6d3;
+    border-radius: 12px;
+    border: 1px solid rgba(210, 180, 140, 0.4);
     margin: 0.3rem;
+    padding: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.formdeadicionarinput:focus {
+    outline: none;
+    border-color: #daa520;
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.3);
+    background: linear-gradient(135deg, rgba(100, 65, 30, 0.5) 0%, rgba(80, 50, 25, 0.6) 100%);
 }
 
 .formdeadicionarcaixa h1 {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    font-family: monospace;
     margin: 0.5rem 1rem;
     margin-bottom: 0;
     font-size: 1.5rem;
     color: transparent;
-    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
     background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
 }
 
 .formdeadicionarcaixa2 {
@@ -206,7 +238,6 @@ main {
     text-align: center;
     align-items: center;
     width: 100%;
-
 }
 
 .formdeadicionarcaixa3 {
@@ -223,48 +254,142 @@ main {
 
 .formdeadicionarcaixa3 button {
     font-size: 0.9rem;
-    padding: 0.6rem;
+    padding: 0.8rem 1.5rem;
     width: 100%;
-    font-weight: bolder;
-    border-radius: 0.5rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .valoresstats img {
     display: flex;
-    margin-left: 11rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 3rem;
     padding: 0.3rem;
-    align-self: flex-end;
+    align-self: center;
+    justify-self: flex-end;
+    order: 3;
+    filter: brightness(1.2);
+}
+
+.valoresstats {
+    background: linear-gradient(135deg, rgba(101, 67, 33, 0.25) 0%, rgba(60, 40, 20, 0.35) 50%, rgba(40, 26, 13, 0.45) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 97%;
+    top: 0;
+    left: 0;
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    max-width: 97%;
+    transition: all 0.5s ease;
+    padding: 2rem;
+    margin: 0.3rem;
+    height: clamp(1.3rem, 15vw, 70vh);
+    border-radius: 16px;
 }
 
 .valoresstats section {
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 97%;
+    max-width: 97%;
+    padding: 0;
+}
+
+option {
+    color: rgba(245, 230, 211, 0.7);
+    background: #3d2815;
+}
+
+.formdeadicionar .despesas {
+    background: linear-gradient(135deg, rgba(120, 60, 30, 0.4) 0%, rgba(80, 40, 20, 0.5) 100%);
+}
+
+.despesas {
+    border: 1px solid rgba(160, 82, 45, 0.5);
+    background: linear-gradient(135deg, rgba(120, 60, 30, 0.4) 0%, rgba(80, 40, 20, 0.5) 100%);
+}
+
+.receitas {
+    border: 1px solid rgba(218, 165, 32, 0.5);
+    background: linear-gradient(135deg, rgba(140, 90, 30, 0.4) 0%, rgba(100, 65, 20, 0.5) 100%);
+}
+
+.formdeadicionarcaixa3 button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+.evolucaodosaldocaixa h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0.5rem 1rem;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: transparent;
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
+}
+
+.evolucaodosaldocaixa {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 16px;
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    background: linear-gradient(135deg, rgba(101, 67, 33, 0.25) 0%, rgba(60, 40, 20, 0.35) 50%, rgba(40, 26, 13, 0.45) 100%);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.2);
+}
+
+.evolucaodosaldocaixa h1 {
+    display: flex;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.evolucaodosaldocaixa label {
+    display: flex;
+    font-size: 0.9rem;
+    color: rgba(245, 230, 211, 0.9);
     flex-direction: row;
     justify-content: center;
 }
 
-.formdeadicionar .despesas {
-    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
-}
-.despesas{
-    border: solid black 2px;
-    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
-
-}
-.receitas {
-    border: solid black 2px;
-    background: linear-gradient(to top right, rgb(255, 248, 220), rgb(228, 221, 192));
-}
-
-.formdeadicionarcaixa3 button:hover {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+.evolucaodosaldocaixa2 {
+    width: 97%;
+    display: flex;
+    border-radius: 16px;
+    justify-content: space-evenly;
+    padding: 1rem;
+    align-items: center;
+    border: 1px solid rgba(210, 180, 140, 0.4);
+    background: linear-gradient(135deg, rgba(80, 50, 25, 0.5) 0%, rgba(60, 40, 20, 0.6) 100%);
+    flex-direction: row;
+    font-size: 1.3rem;
+    text-align: center;
 }
 
-:hover {
-    transform: none;
+.evolucaodosaldocaixa p {
+    color: transparent;
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
 }
 
 .formdeadicionarcaixa section {
@@ -281,33 +406,15 @@ main {
 .formdeadicionarcaixa section label {
     display: flex;
     font-size: 0.9rem;
-    color: rgb(199, 189, 172);
+    color: rgba(245, 230, 211, 0.9);
     flex-direction: row;
 }
 
-.valoresstats {
-    background: linear-gradient(to top left, rgb(46, 30, 10), rgb(80, 53, 20));
-    display: flex;
-    border: solid rgb(102, 59, 30) 2px;
-    padding: clamp(0.8rem, 2.5vw, 1.5rem);
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 500px;
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    text-align: justify;
-    transition: all 1s ease;
-    min-height: auto;
-    flex-direction: column;
-    height: 7.8rem;
-    border-radius: 0.8rem;
-    overflow: hidden;
-    scale: 0.9;
-}
-
 .valoresstats:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 0px 10px rgba(218, 165, 32, 0.25);
+    border-color: rgba(218, 165, 32, 0.4);
+    background: linear-gradient(135deg, rgba(121, 85, 40, 0.3) 0%, rgba(80, 53, 25, 0.4) 50%, rgba(53, 35, 16, 0.5) 100%);
 }
 
 .formdeadicionarcaixaencapsular {
@@ -318,11 +425,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.valoresstats h1 {
-    font-size: 1rem;
-    font-family: sans-serif;
 }
 
 .formdeadicionar {
@@ -342,154 +444,232 @@ main {
 select,
 input {
     padding: clamp(0.4rem, 1.5vw, 0.6rem);
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 12px;
+    border: 1px solid rgba(210, 180, 140, 0.4);
     width: 100%;
     margin-bottom: 0.5rem;
     font-size: clamp(0.8rem, 1.8vw, 1rem);
+    background: linear-gradient(135deg, rgba(80, 50, 25, 0.4) 0%, rgba(60, 40, 20, 0.5) 100%);
+    color: #f5e6d3;
+    backdrop-filter: blur(10px);
 }
 
 #receitacomcor {
-    background: linear-gradient(to top right, lime, green);
+    background: linear-gradient(135deg, #32cd32 0%, #228b22 100%);
     color: white;
+    border: 1px solid rgba(50, 205, 50, 0.4);
 }
 
 #despesacomcor {
     color: white;
-    background: linear-gradient(to top right, red, darkred)
+    background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+    border: 1px solid rgba(220, 20, 60, 0.4);
+}
+
+.valoresstats h1 {
+    font-size: 1rem;
+    display: flex;
+    align-self: flex-start;
+    justify-self: center;
+    font-weight: 600;
+    color: #f5e6d3;
 }
 
 .valoresstats p {
     color: transparent;
-    background: linear-gradient(to right, gold, rgb(255, 174, 0), rgb(255, 187, 0));
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
     background-clip: text;
-    font-weight: bold;
+    -webkit-background-clip: text;
+    font-weight: 800;
     display: flex;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     align-self: flex-start;
-    justify-content: flex-start;
-}
-
-.saldonegativo {
-    position: fixed;
-    top: 70px;
-    color: #ff6b6b;
-    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-    text-shadow: 0px 0px 3px #ff6b6b;
-    font-family: sans-serif;
-}
-
-.saldopositivo {
-    color: #51cf66;
-    position: fixed;
-    top: 70px;
-    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
-    text-shadow: 0px 0px 2px #51cf66;
-    font-family: sans-serif;
-    text-shadow: 0px 0px 3px lime;
+    justify-self: flex-end;
+    order: 2;
 }
 
 .adicionar {
     max-width: 5%;
     border: none;
-    transition: none;
+    transition: all 0.3s ease;
     height: 3rem;
-    background-color: rgb(2, 194, 2);
+    background: linear-gradient(135deg, #32cd32 0%, #228b22 100%);
     color: white;
-    font-family: monospace;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid rgba(50, 205, 50, 0.4);
 }
+
+.saldopositivo, .saldonegativo {
+    left: 0;
+    display: flex;
+    justify-self: center;
+    align-self: flex-start;
+    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    text-align: center;
+    font-weight: 600;
+}
+
+.saldovariacao {
+    display: flex;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    justify-content: flex;
+    align-items: center;
+    width: 97%;
+}
+
+.saldopositivo {
+    color: #90ee90;
+    text-shadow: 0px 0px 10px rgba(144, 238, 144, 0.5);
+}
+
+.saldonegativo {
+    color: #f08080;
+    text-shadow: 0px 0px 10px rgba(240, 128, 128, 0.5);
+}
+
 .adicionar:hover {
-    scale: 1.1;
-    text-shadow: none;
-    background: linear-gradient(to bottom left, lime, lime, green, green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(50, 205, 50, 0.5);
+    background: linear-gradient(135deg, #228b22 0%, #32cd32 100%);
 }
 
 .adicionar:active {
-    scale: 0.99;
-    border: none;
-    color: rgb(209, 202, 202);
-    background: linear-gradient(to bottom left, rgb(3, 216, 3), rgb(3, 216, 3), rgb(0, 105, 0), rgb(0, 105, 0));
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(50, 205, 50, 0.4);
 }
 
-/* Container para os cards de estatísticas */
-.caixa span {
-    transition: 0.3s;
+/* Modern scrollbar */
+::-webkit-scrollbar {
+    width: 0.2rem;
 }
 
-/* Media Queries */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #3b1d07 0%, #4d2709 100%);
+    border-radius: 10px;
+}
+
+/* Media Queries remain the same */
 @media (max-width: 768px) {
     .xarutodiv {
         justify-content: space-between;
     }
-
+    
+    .saldopositivo {
+        font-size: 1.3rem;
+    }
+    
     .xarutodiv2 {
         gap: 8px;
     }
 
     .adicionar {
         max-width: 10%;
-        border: solid black 1.3px;
     }
-
-    .tempomes span {
-        display: none;
-    }
-
+    
     .caixa {
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         flex-direction: column;
     }
-
+    
     .valoresstats {
-        max-width: 100%;
-        scale: 0.95;
+        display: flex;
+        height: 22vh;
+        padding: 1rem;
     }
-
-    .formdeadicionar {
-        scale: 1;
+    .valoresstats p {
+        font-size: 2rem;
     }
-
+    
     .valoresstats img {
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 3rem;
-        padding: 0.3rem;
+        scale: 0.9;
+    }
+    
+    .evolucaodosaldocaixa2 {
+        width: 70%;
+        margin: 0.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .cabecario {
-        height: 60px;
+        height: 16vh;
         padding: 0 8px;
     }
 
     .xarutotitulo {
-        font-size: 1.3rem;
+        font-size: 3rem;
+    }
+
+    .valoresstats img {
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        align-self: center;
+        justify-self: flex-end;
     }
 
     .subtitulo {
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
-
-    .valoresstats {
-        width: 100%;
-        border-radius: 1rem;
-        scale: 0.95;
-    }
-
+    
     .formdeadicionarcaixa {
         width: 100%;
-        border-radius: 1rem;
+        border-radius: 16px;
         scale: 0.95;
     }
 
     .espacinho {
-        height: 60px;
+        height: 15vh;
     }
 
-    .graficoPizza {
-        margin-top: 120px;
+    .evolucaodosaldocaixa2 {
+        width: 97%;
+    }
+    
+    .evolucaodosaldocaixa2 label, p {
+        scale: 0.7;
+        flex-direction: row;
+    }
+    
+    .evolucaodosaldocaixa2 {
+        height: 5rem;
+    }
+
+    .valoresstats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 17vh;
+    }
+    
+    .valoresstats p {
+        font-size: 1.6rem;
+    }
+    
+    .saldopositivo,
+    .saldonegativo {
+        font-size: 1rem;
+    }
+    
+    .formdeadicionarinput {
+        padding: 0.3rem;
+        scale: 0.85;
+    }
+    
+    .formdeadicionarcaixa label {
+        scale: 0.8;
+    }
+    .adicionar{
+        text-align: center;
+        padding: 1rem;
     }
 }
 
@@ -497,8 +677,13 @@ input {
     #caixastats {
         grid-template-columns: repeat(3, 1fr);
     }
-
+    
     .valoresstats {
-        width: 100%;
+        padding: 0.5rem;
+        height: 20vh;
+    }
+    
+    .xarutotitulo {
+        font-size: 3rem;
     }
 }

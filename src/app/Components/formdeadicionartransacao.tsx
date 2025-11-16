@@ -19,7 +19,7 @@ export default function FormAdicionar({ moeda, local }: config) {
     const [tipoTransacao, setTipoTransacao] = useState("")
     const [dataTransacao, setDataTransacao] = useState( dataTempo.getFullYear() + "-" + dataTempo.getMonth() + "-" + dataTempo.getDate() ) 
     const [valorTransacao, setValorTransacao] = useState( 0 )
-    const [categoriaTransacao, setCategoriaTransacao] = useState(1)
+    const [categoriaTransacao, setCategoriaTransacao] = useState(0)
 
     function botaoTipoEvent(tipo: string) {
         if (tipo == tipoTransacao) {
@@ -53,7 +53,7 @@ export default function FormAdicionar({ moeda, local }: config) {
     }
 
     function categoriaEvent(event: ChangeEvent<HTMLSelectElement>) {
-        setCategoriaTransacao( event.target.selectedIndex-1 )
+        setCategoriaTransacao( event.target.selectedIndex )
     }
 
     return (
@@ -72,25 +72,25 @@ export default function FormAdicionar({ moeda, local }: config) {
                 </div>
                 <div className="formdeadicionarcaixaencapsular">
                     <section>
-                        <label htmlFor="">Categoria *</label>
+                        <label className="categoria" htmlFor="">Categoria *</label>
                         <select
                             name="Selectcategory"
-                            defaultValue=""
                             className="formdeadicionarinput"
                             onChange={categoriaEvent}
+                            value={categoriaTransacao}
                         >
-                            <option value={-1} disabled>Selecione uma categoria</option>
-                            <option value={0}>Alimentação</option>
-                            <option value={1}>Transporte</option>
-                            <option value={2}>Moradia</option>
-                            <option value={3}>Saúde</option>
-                            <option value={4}>Lazer</option>
-                            <option value={5}>Educação</option>
-                            <option value={6}>Compras</option>
-                            <option value={7}>Salário</option>
-                            <option value={8}>Trabalho</option>
-                            <option value={9}>Investimentos</option>
-                            <option value={10}>Outros</option>
+                            <option value={0} disabled>Selecione uma categoria</option>
+                            <option value={1}>Alimentação</option>
+                            <option value={2}>Transporte</option>
+                            <option value={3}>Moradia</option>
+                            <option value={4}>Saúde</option>
+                            <option value={5}>Lazer</option>
+                            <option value={6}>Educação</option>
+                            <option value={7}>Compras</option>
+                            <option value={8}>Salário</option>
+                            <option value={9}>Trabalho</option>
+                            <option value={10}>Investimentos</option>
+                            <option value={11}>Outros</option>
                         </select>
                     </section>
                     <section>

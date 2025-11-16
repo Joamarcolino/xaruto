@@ -1,4 +1,5 @@
 const mensagems = [
+    [""], //não selecionado
     ["Comprei um hamburguer."], //alimentação
     ["Paguei um Uber."], //transporte
     ["Paguei meu aluguel."], //moradia
