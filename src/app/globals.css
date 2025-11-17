@@ -5,7 +5,6 @@
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     user-select: none;
 }
-
 body {
     min-height: 100vh;
     background: linear-gradient(135deg, #080603 0%, #161008 50%, #1d1309 100%);
@@ -23,6 +22,10 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 .corpo {
@@ -79,6 +82,10 @@ option{
     flex-wrap: wrap;
 }
 
+.xarutotituloicone {
+    margin: none;
+}
+
 .xarutotitulo {
     color: transparent;
     scale: 1;
@@ -104,6 +111,10 @@ option{
 
 .valoresstats .subtitulo {
     font-size: clamp(1.3rem, 1.8vw, 0.9rem);
+}
+
+.calendarioicone {
+    margin-left: 2px;
 }
 
 .tempomes {
@@ -277,7 +288,6 @@ option{
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     width: 97%;
@@ -289,9 +299,8 @@ option{
     scrollbar-width: none;
     max-width: 97%;
     transition: all 0.5s ease;
-    padding: 2rem;
     margin: 0.3rem;
-    height: clamp(1.3rem, 15vw, 70vh);
+    height: clamp(0.8rem, 20vh, 30rem);
     border-radius: 16px;
 }
 
@@ -315,11 +324,13 @@ option {
 }
 
 .despesas {
+    color: #f5e6d3;
     border: 1px solid rgba(160, 82, 45, 0.5);
     background: linear-gradient(135deg, rgba(120, 60, 30, 0.4) 0%, rgba(80, 40, 20, 0.5) 100%);
 }
 
 .receitas {
+    color: #f5e6d3;
     border: 1px solid rgba(218, 165, 32, 0.5);
     background: linear-gradient(135deg, rgba(140, 90, 30, 0.4) 0%, rgba(100, 65, 20, 0.5) 100%);
 }
@@ -327,6 +338,15 @@ option {
 .formdeadicionarcaixa3 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+}
+
+.evolucaodosaldoitem {
+    transition: 600ms;
+}
+
+.evolucaodosaldoitem:hover {
+    scale: 1.08;
+    text-shadow:1px 1px 23px rgba(255, 217, 0, 0.3);
 }
 
 .evolucaodosaldocaixa h1 {
@@ -441,6 +461,16 @@ option {
     flex-direction: column;
 }
 
+.graficovaloresstats {
+    width: 97%;
+    height: 30px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    border: 1px solid rgba(210, 180, 140, 0.4);
+    padding: 2px;
+    background: linear-gradient(135deg, #50321980 0%, #3c281499 100%)
+}
+
 select,
 input {
     padding: clamp(0.4rem, 1.5vw, 0.6rem);
@@ -468,7 +498,10 @@ input {
 
 .valoresstats h1 {
     font-size: 1rem;
+    margin-left: 0.5rem;
+
     display: flex;
+    font-family: 'Courier New', Courier, monospace;
     align-self: flex-start;
     justify-self: center;
     font-weight: 600;
@@ -482,7 +515,9 @@ input {
     -webkit-background-clip: text;
     font-weight: 800;
     display: flex;
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    height: 100%;
+    font-family: monospace;
+    font-size: clamp(1.3rem, 4vw, 2rem);
     align-self: flex-start;
     justify-self: flex-end;
     order: 2;
@@ -506,7 +541,7 @@ input {
     display: flex;
     justify-self: center;
     align-self: flex-start;
-    font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+    font-size: clamp(0.7rem, 1.8vw, 0.7rem);
     text-align: center;
     font-weight: 600;
 }
@@ -551,7 +586,26 @@ input {
     background: linear-gradient(135deg, #3b1d07 0%, #4d2709 100%);
     border-radius: 10px;
 }
-
+.evolucaodosaldocaixa5{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    order:0;
+}
+.evolucaodosaldocaixa5 p{
+    font-size: 0.7rem;
+}
+.evolucaodosaldocaixa5 label{
+    color: transparent;
+    background-clip: text;
+    font-weight: bolder;
+}
+.saldoevolucaodespesa{
+    background:linear-gradient(to top right, rgb(255, 5, 5), rgb(157, 92, 92));
+}
+.saldoevolucaoreceita{
+    background: linear-gradient(to top left, lime, rgb(98, 171, 98));
+}
 /* Media Queries remain the same */
 @media (max-width: 768px) {
     .xarutodiv {
@@ -580,8 +634,7 @@ input {
     
     .valoresstats {
         display: flex;
-        height: 22vh;
-        padding: 1rem;
+        height: 100%;
     }
     .valoresstats p {
         font-size: 2rem;
@@ -606,7 +659,6 @@ input {
     .xarutotitulo {
         font-size: 3rem;
     }
-
     .valoresstats img {
         height: 3rem;
         width: 3rem;
@@ -647,16 +699,16 @@ input {
         justify-content: center;
         align-items: center;
         text-align: center;
-        height: 17vh;
+        height: 100%;
     }
     
     .valoresstats p {
         font-size: 1.6rem;
     }
-    
     .saldopositivo,
     .saldonegativo {
         font-size: 1rem;
+        margin-bottom: 1rem;
     }
     
     .formdeadicionarinput {
@@ -671,19 +723,9 @@ input {
         text-align: center;
         padding: 1rem;
     }
-}
-
-@media (min-width: 1200px) {
-    #caixastats {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .valoresstats {
-        padding: 0.5rem;
-        height: 20vh;
-    }
-    
-    .xarutotitulo {
-        font-size: 3rem;
+    .valoresstats section{
+        margin: 0;
+        gap: 0;
+        display: flex;
     }
 }

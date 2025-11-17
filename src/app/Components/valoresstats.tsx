@@ -1,8 +1,8 @@
 import { useState } from "react"
 import Image from 'next/image'
 import receitaImage from '../Images/receitas.png'
-import saldoImage from '../images/saldo.png'
-import despesasImage from '../images/despesas.png'
+import saldoImage from '../Images/saldo.png'
+import despesasImage from '../Images/despesas.png'
 
 interface Props {
     local: string;
@@ -15,7 +15,6 @@ interface Props {
 export default function Statsandvalues({ local, moeda, receita, despesas, saldo }: Props) {
     const formatador = Intl.NumberFormat(local, { style: 'currency', currency: moeda, minimumFractionDigits: 2, maximumFractionDigits: 2 })
     let statusSaldo
-
     if (saldo < 0) {
         statusSaldo = <span className="saldonegativo">Saldo negativo</span>
     } else {
@@ -30,9 +29,9 @@ export default function Statsandvalues({ local, moeda, receita, despesas, saldo 
                     <p>{formatador.format(saldo)}</p>
                     <Image alt={"saldo"} src={saldoImage} width={60} height={60} />
                 </section>
-                    <div className="saldovariacao">
+                <div className="saldovariacao">
                     {statusSaldo}
-                    </div>
+                </div>
             </div>
             <div className="valoresstats">
                 <h1 className="subtitulo">RECEITAS</h1>

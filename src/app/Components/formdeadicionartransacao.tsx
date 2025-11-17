@@ -102,8 +102,8 @@ export default function FormAdicionar({ moeda, local }: config) {
             </div>
 
                 <div className="formdeadicionarcaixa3">
-                    <button className="despesas" id={checarCorBotaoTransacao("despesa")} onClick={() => { botaoTipoEvent("despesa") }} >Despesa</button>
                     <button className="receitas" id={checarCorBotaoTransacao("receita")} onClick={() => { botaoTipoEvent("receita") }} >Receita</button>
+                    <button className="despesas" id={checarCorBotaoTransacao("despesa")} onClick={() => { botaoTipoEvent("despesa") }} >Despesa</button>
                     <button className="adicionar">+</button>
                 </div>
             </div>

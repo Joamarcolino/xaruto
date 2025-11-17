@@ -17,7 +17,7 @@ export default function Home(){
       <div className="espacinho"></div>
       <Navbarzin/>
     <main className="corpo">
-      <Statsandvalues local={localUsuario} moeda={moedaUsuario} receita={6000} despesas={1000} saldo={3000}  />
+      <Statsandvalues local={localUsuario} moeda={moedaUsuario} receita={6000} despesas={1000} saldo={3000}/>
       <Formdeadicionar local={localUsuario} moeda={moedaUsuario}/>
       <Evolucaodosaldo local={localUsuario} moeda={moedaUsuario} receita={6000} despesas={1000} saldo={3000} transacoes={55} />
     </main>

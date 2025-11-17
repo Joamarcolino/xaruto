@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import calendarioImage from "../Images/calendario.png"
+
 export default function Tempomes() {
     const dataTempo: Date = new Date()
     const totalDias: number = (new Date(dataTempo.getFullYear(), dataTempo.getMonth() + 0, 0)).getDate()
@@ -7,11 +10,7 @@ export default function Tempomes() {
     return (
         <div className="tempomes">
             <p>{porcento*100 + "%"}</p>
-
-            <svg width={100} height={60}>
-                <rect width={90*porcento} height={45} x={0} y={0} rx={5} ry={5} fill="blue" />
-                {porcento + "%"}
-            </svg>
+            <Image className="calendarioicone" alt={"Calendario"} src={calendarioImage} width={24} height={24} />
         </div>
     )
 }
