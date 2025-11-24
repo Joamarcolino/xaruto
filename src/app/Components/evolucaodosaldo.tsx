@@ -1,20 +1,29 @@
 import { useEffect, useRef } from "react";
+import Image from "next/image"
+import iconeTitulo from "../Icons/evolucao.png"
 
 interface Props {
     local: string;
-    moeda: string;
     receita: number;
     despesas: number;
     saldo: number;
     transacoes: number;
+    formatador: Intl.NumberFormat;
+    mesSelecionado: string;
 }
 
-export default function Evolucaosaldo({ local, moeda, receita, despesas, saldo, transacoes }: Props) {
+function paraDeRetornarNAN( coisa: number ) {
+    if (Number.isNaN(coisa)) {
+        return 0
+    }
+    return coisa
+}
+
+export default function Evolucaosaldo({ local, receita, despesas, saldo, transacoes, formatador, mesSelecionado }: Props) {
     const tempoData = new Date()
-    const formatador = Intl.NumberFormat(local, { style: 'currency', currency: moeda, minimumFractionDigits: 2, maximumFractionDigits: 2 })
     const canvaRef = useRef<HTMLCanvasElement | null>(null)
     const movimentacaoTotal = receita + despesas
-    const estemes = new Date(tempoData.getFullYear(), tempoData.getMonth(), tempoData.getDate()).toLocaleDateString(local, { month: 'long' }).replace(/^./, char => char.toUpperCase())
+    
     useEffect(() => {
         const canva = canvaRef.current
         if (!canva) return
@@ -24,14 +33,14 @@ export default function Evolucaosaldo({ local, moeda, receita, despesas, saldo, 
 
         ctx.fillStyle = "#32cd32"
         ctx.fillRect(0, 0, canva.width * (receita / movimentacaoTotal), canva.height)
-        ctx.fillStyle = "#dc143cff"
+        ctx.fillStyle = "#dc143c"
         ctx.fillRect(canva.width * (receita / movimentacaoTotal), 0, canva.width * (despesas / movimentacaoTotal), canva.height)
     })
 
     return (
         <div className="caixa">
             <div className="evolucaodosaldocaixa">
-                <h1>+ Evolução do Saldo</h1>
+                <h1>+ Evolução do Saldo </h1>
                 <div className="evolucaodosaldocaixa2">
                     <section className="evolucaodosaldoitem" >
                         <label htmlFor="">Saldo atual</label>
@@ -39,7 +48,7 @@ export default function Evolucaosaldo({ local, moeda, receita, despesas, saldo, 
                     </section>
                     <section className="evolucaodosaldoitem">
                         <label>Este Mês</label>
-                        <p> { estemes } </p>
+                        <p> { mesSelecionado } </p>
                     </section>
                     <section className="evolucaodosaldoitem">
                         <label htmlFor="">Transações</label>
@@ -47,12 +56,12 @@ export default function Evolucaosaldo({ local, moeda, receita, despesas, saldo, 
                     </section>
                 </div>
                 <div className="evolucaodosaldocaixa3">
-                    <label htmlFor="">Receitas vs Despesas (Total)</label>
+                    <label htmlFor="">Receitas vs Despesas</label>
                 </div>
                 <div className="evolucaodosaldocaixa5">
-                        <label className="saldoevolucaoreceita">{"Receitas: " + formatador.format(receita) + " (" +  Math.round( receita/movimentacaoTotal * 100 ) + "%)"}</label>
-                    <p>{tempoData.getDate() + " de " + estemes + " de " + tempoData.getFullYear()}</p>
-                        <label className="saldoevolucaodespesa">{"Despesas: " + formatador.format(despesas) + " (" +  Math.round( despesas/movimentacaoTotal * 100 ) + "%)"}</label>
+                        <label className="saldoevolucaoreceita">{"Receitas: " + formatador.format(receita) + " (" +  paraDeRetornarNAN(Math.round( receita/movimentacaoTotal * 100 )) + "%)"}</label>
+                    <p>{tempoData.getDate() + " de " + mesSelecionado + " de " + tempoData.getFullYear()}</p>
+                        <label className="saldoevolucaodespesa">{"Despesas: " + formatador.format(despesas) + " (" +  paraDeRetornarNAN(Math.round( despesas/movimentacaoTotal * 100 )) + "%)"}</label>
                 </div>
                 <canvas className="graficovaloresstats" ref={canvaRef} />
             </div>

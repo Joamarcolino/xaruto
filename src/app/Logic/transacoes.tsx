@@ -1,20 +1,19 @@
-interface transacao {
-    categoria: string,
-    valor: number,
-    data: string,
-    info: string | undefined,
-    id: string
-}
+import { transacaoIncompleta, transacao, mes } from "./types"
+import { mesParaNumero } from "./meses";
+import { useState } from "react"
 
-interface mes {
-    receitas: number,
-    despesas: number,
-    nome: string,
-    numero: string,
-    transacoes: transacao[]
-}
+const nomeDoMesAtual = new Date().toLocaleDateString(navigator.language, { month: "long" }).replace(/^\w/, (c) => c.toUpperCase());
 
-const mesTransacoes: transacao[] = []
+let mesTransacoes: transacao[] = []
+const mesAtual: mes = {
+    dinheiroSobra: 0,
+    receita: 0,
+    despesas: 0,
+    saldo: 0,
+    nome: "Novembro",
+    numero: 11,
+    transacoes: []
+}
 //let mesNumero: number = 0
 //let mesNome: string = ""
 
@@ -33,7 +32,7 @@ function criarMes(data: mes) {
 function salvarMes(index: number, data: mes) {
     if (localStorage.getItem("mes_" + (index))) {
         localStorage.setItem("mes_" + (index), JSON.stringify({
-            receitas: data.receitas,
+            receitas: data.receita,
             despesas: data.despesas,
             nome: data.nome,
             numero: data.numero,
@@ -81,10 +80,13 @@ function criarID() {
     return novoID
 }
 
-function criarTransacao( {categoria, valor, data, info}: transacao) {
+function criarTransacao( {categoria, valor, data, descricao}: transacaoIncompleta) {
     if (!categoria || !valor || !data ) {return false}
     const id = criarID()
-    mesTransacoes.push( {categoria, valor, data, info, id} )
+    mesTransacoes.push( {categoria, valor, data, descricao, id} )
+
+    update()
+    transacoes.update(mesTransacoes)
     return true
 }
 
@@ -95,16 +97,39 @@ function excluirTransacao( id: string ) {
     return true
 }
 
+function update() {
+    let receita: number = 0, despesas: number = 0, total = transacoes.mesAtual.dinheiroSobra
+
+    mesTransacoes.forEach(transacao => {
+        console.log(transacao.valor)
+        if (Math.sign(transacao.valor) < 0) {
+            despesas += Math.abs(transacao.valor)
+        } else {
+            receita += transacao.valor
+        }
+        total += transacao.valor
+    })
+
+    transacoes.mesAtual.nome = nomeDoMesAtual
+    transacoes.mesAtual.saldo = total
+    transacoes.mesAtual.numero = mesParaNumero[nomeDoMesAtual]
+    transacoes.mesAtual.receita = receita
+    transacoes.mesAtual.despesas = despesas
+    transacoes.mesAtual.transacoes = mesTransacoes
+}
+
 // transacoes /\
 
 const transacoes = {
+    mesAtual: mesAtual,
     excluirTransacao: excluirTransacao,
     criarTransacao: criarTransacao,
     acharTransacao: acharTransacao,
     acharMesIndex: acharMesIndex,
     carregarMes: carregarMes,
     salvarMes: salvarMes,
-    criarMes: criarID
+    criarMes: criarID,
+    update: function(transacoes: transacao[]) {}
 }
 
 export default transacoes

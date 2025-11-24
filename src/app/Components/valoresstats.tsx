@@ -1,19 +1,16 @@
 import { useState } from "react"
 import Image from 'next/image'
-import receitaImage from '../Images/receitas.png'
-import saldoImage from '../Images/saldo.png'
-import despesasImage from '../Images/despesas.png'
-
+import receitaImage from '../Icons/receitas.png'
+import saldoImage from '../Icons/saldo.png'
+import despesasImage from '../Icons/despesas.png'
 interface Props {
-    local: string;
-    moeda: string;
-    receita: number;
+    receita: number; 
     despesas: number;
     saldo: number;
+    formatador: Intl.NumberFormat;
 }
 
-export default function Statsandvalues({ local, moeda, receita, despesas, saldo }: Props) {
-    const formatador = Intl.NumberFormat(local, { style: 'currency', currency: moeda, minimumFractionDigits: 2, maximumFractionDigits: 2 })
+export default function Statsandvalues({ receita, despesas, saldo, formatador }: Props) {
     let statusSaldo
     if (saldo < 0) {
         statusSaldo = <span className="saldonegativo">Saldo negativo</span>

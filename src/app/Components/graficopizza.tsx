@@ -1,24 +1,22 @@
 import { useRef, useEffect } from "react";
 
-interface Item {
-    nome: string;
-    valor: number;
-}
-
 interface Props {
-    raio: number;
-    tamanho: number;
-    partes: Item[];
-    id: string;
+    partes: number[];
+    local: string;
+    moeda: string;
 }
 
-export default function GraficoPizza({ id, raio, tamanho, partes }: Props) {
+export default function graficopizza({ local, moeda, partes }: Props) {
     let total = 0;
 
+    const corborda = "#d2b48c"
+    const coresCategorias = ["#3B1D07", "#553012", "#6E4320", "#87572F", "#A06B3D", "#BA804C", "#D4955C", "#2F1706", "#241104", "#472710", "#5C341A"]
+
     partes.forEach(item => {
-        total += item.valor
+        total += item
     });//pegar total de dinheiro dado.
 
+    let offsetx = 0, offsety = 0
     const canvaRef = useRef<HTMLCanvasElement | null>(null)
     useEffect(() => {
         const canva = canvaRef.current
@@ -26,50 +24,48 @@ export default function GraficoPizza({ id, raio, tamanho, partes }: Props) {
         const ctx = canva.getContext("2d") as CanvasRenderingContext2D;
         if (!ctx) return
 
-        let cor = "rgb"
+        let raio = Math.max(Math.min(canva.width, canva.height) / 2 - 10, 1)
         let comeco = 0;
         let porcento = 0;
-        ctx.clearRect(0, 0, raio * 2 + 20, raio * 2 + 20)
+        ctx.clearRect(0, 0, canva.width, canva.height)
+
+        canva.width = 400
+        canva.height = 400
+
+        let index = 0
         partes.forEach(item => {
-            porcento = (Math.round((item.valor / total) * 100) / 100)
-            cor = "rgb(" + Math.random() * 255 + ", " + Math.random() * 255 + ", " + Math.random() * 255 + ")"
+            porcento = (Math.round((item / total) * 100) / 100)
 
+            const pos1: number = (Math.PI * 2) * comeco
+            const pos2: number = (Math.PI * 2) * (comeco + porcento)
+            const pos3: number = (Math.PI * 2) * (comeco + (porcento / 2))
+            comeco += porcento
+
+            console.log(coresCategorias[index])
             ctx.beginPath()
-            ctx.lineWidth = 5
-            ctx.fillStyle = cor
-            ctx.strokeStyle = cor
-            ctx.arc(tamanho / 2, tamanho / 2, raio, comeco, comeco + (Math.PI * 2) * porcento)
-
-            ctx.moveTo(tamanho / 2 + Math.cos(comeco) * raio, tamanho / 2 + Math.sin(comeco) * raio)
-            ctx.lineTo(tamanho / 2, tamanho / 2)
-            ctx.lineTo(tamanho / 2 + Math.cos(comeco + ((Math.PI * 2) * porcento)) * raio, tamanho / 2 + Math.sin(comeco + ((Math.PI * 2) * porcento)) * raio)
-            ctx.lineTo(tamanho / 2 + Math.cos(comeco) * raio, tamanho / 2 + Math.sin(comeco) * raio)
-
+            ctx.fillStyle = coresCategorias[index]
+            ctx.strokeStyle = corborda
+            ctx.lineWidth = 7
+            console.log(raio)
+            ctx.arc(canva.width / 2, canva.height / 2, raio, pos1, pos2)
+            ctx.lineTo(canva.width / 2, canva.height / 2)
+            ctx.lineTo((canva.width / 2) + Math.cos(pos1) * raio, (canva.height / 2) + Math.sin(pos1) * raio)
             ctx.stroke()
             ctx.fill()
             ctx.closePath()
-
-            ctx.lineWidth = 1
-            ctx.fillStyle = "rgb(255,255,255)";
-            ctx.font = "35px Arial";
-            ctx.fillText(item.nome,
-                tamanho / 2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
-                tamanho / 2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
-            ctx.strokeText(item.nome,
-                tamanho / 2 + (Math.cos(((Math.PI * 2) * porcento) / 2 + comeco) * raio),
-                tamanho / 2 + (Math.sin(((Math.PI * 2) * porcento) / 2 + comeco) * raio))
-            comeco += ((Math.PI * 2) * porcento)
+            index++
         });//desenhar grafico.
-        ctx.beginPath()
-        ctx.fillStyle = "white"
-        ctx.arc(tamanho / 2, tamanho / 2, raio / 2, 0, Math.PI * 2)
-        ctx.stroke()
-        ctx.fill()
-        ctx.closePath()
 
-        partes.forEach(item => {
+    ctx.beginPath()
+    ctx.fillStyle = corborda
+    ctx.arc(canva.width / 2, canva.height / 2, 40, 0, Math.PI * 2)
+    ctx.fill()
 
-        })
+    ctx.beginPath()
+    ctx.arc(canva.width / 2, canva.height / 2, 35, 0, Math.PI * 2)
+    ctx.fill()
+    ctx.clip()
+    ctx.clearRect(0, 0, canva.width, canva.height)
     })
-    return <canvas className={id} width={tamanho} height={tamanho} ref={canvaRef} />
+    return <canvas className="graficopizza" width={400} height={400} ref={canvaRef} />
 }

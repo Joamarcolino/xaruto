@@ -1,7 +1,6 @@
 import React from 'react';
 import imagemxaruto from "../Images/imagemxaruto.jpg"
 import Tempomes from './tempodomes';
-
 import icone from '../favicon.ico' 
 
 import Image from 'next/image';

@@ -1,25 +1,22 @@
 import { ChangeEvent, useState } from "react"
-import descricaoExemplos from "../Logic/descricaoExemplos"
+import { mensagems, numeroParaCategoria } from "../Logic/categorias"
+import Image from "next/image"
 
-interface transacao {
-    categoria: string,
-    valor: number,
-    data: string,
-    info: string | undefined
+import { transacao } from "../Logic/types"
+import transacoes from "../Logic/transacoes"
+
+interface props {
+    moeda: string,
+    formatador: Intl.NumberFormat
 }
 
-interface config {
-    moeda: string
-    local: string
-}
-
-export default function FormAdicionar({ moeda, local }: config) {
-    const formatador = Intl.NumberFormat(local, { style: 'currency', currency: moeda, minimumFractionDigits: 2, maximumFractionDigits: 2 })
+export default function FormAdicionar({ moeda, formatador }: props) {
     const dataTempo: Date = new Date()
     const [tipoTransacao, setTipoTransacao] = useState("")
-    const [dataTransacao, setDataTransacao] = useState( dataTempo.getFullYear() + "-" + dataTempo.getMonth() + "-" + dataTempo.getDate() ) 
-    const [valorTransacao, setValorTransacao] = useState( 0 )
+    const [valorTransacao, setValorTransacao] = useState(0)
     const [categoriaTransacao, setCategoriaTransacao] = useState(0)
+    const [descricaoTransacao, setDescricaoTransacao] = useState("")
+    const dataTransacao = dataTempo.getDate() + "/" + (Number(dataTempo.getMonth()) + 1) + "/" + dataTempo.getFullYear() + " " + dataTempo.getHours() + ":" + dataTempo.getMinutes() + ":" + dataTempo.getSeconds()
 
     function botaoTipoEvent(tipo: string) {
         if (tipo == tipoTransacao) {
@@ -43,17 +40,36 @@ export default function FormAdicionar({ moeda, local }: config) {
         return Number(dinheiro.replaceAll(/[^0-9,]/g, "").replaceAll(",", "."))
     }
 
-    function dataEvent(event: ChangeEvent<HTMLInputElement>) {
-        console.log(event.target.value)
-        setDataTransacao(event.target.value)
-    }
-
     function valorEvent(event: ChangeEvent<HTMLInputElement>) {
-        setValorTransacao( pegarValorDinheiro(event.target.value) )
+        setValorTransacao(pegarValorDinheiro(event.target.value))
     }
 
     function categoriaEvent(event: ChangeEvent<HTMLSelectElement>) {
-        setCategoriaTransacao( event.target.selectedIndex )
+        setCategoriaTransacao(event.target.selectedIndex)
+    }
+
+    function descricaoEvent(event: ChangeEvent<HTMLInputElement>) {
+        setDescricaoTransacao(event.target.value)
+    }
+
+    function forcarDoisDigitos(digito: number) {
+        if (digito < 10) {
+            return "0" + digito
+        }
+        return digito
+    }
+
+    function criarTransacao() {
+        if (!(categoriaTransacao && tipoTransacao && valorTransacao)) { return }
+        let valorAtual = valorTransacao
+        if (tipoTransacao == "despesa") { valorAtual = valorAtual * -1 }
+
+        transacoes.criarTransacao({ categoria: numeroParaCategoria[categoriaTransacao], valor: valorAtual, descricao: descricaoTransacao, data: dataTransacao })
+
+        setCategoriaTransacao(0)
+        setDescricaoTransacao("")
+        setTipoTransacao("")
+        setValorTransacao(0)
     }
 
     return (
@@ -62,50 +78,43 @@ export default function FormAdicionar({ moeda, local }: config) {
             <div className="formdeadicionarcaixa2">
                 <div className="formdeadicionarcaixaencapsular">
                     <section>
-                        <label htmlFor="">Descrição </label>
-                        <input className="formdeadicionarinput" type="text" placeholder={"Ex: " + descricaoExemplos[categoriaTransacao][Math.floor(Math.random()*descricaoExemplos[categoriaTransacao].length)]} />
-                    </section>
-                    <section>
                         <label htmlFor="">{"Valor (" + moeda + ") *"}</label>
                         <input className="formdeadicionarinput" type="text" onChange={valorEvent} value={formatador.format(valorTransacao)} />
                     </section>
-                </div>
-                <div className="formdeadicionarcaixaencapsular">
-                    <section>
-                        <label className="categoria" htmlFor="">Categoria *</label>
-                        <select
-                            name="Selectcategory"
-                            className="formdeadicionarinput"
-                            onChange={categoriaEvent}
-                            value={categoriaTransacao}
-                        >
-                            <option value={0} disabled>Selecione uma categoria</option>
-                            <option value={1}>Alimentação</option>
-                            <option value={2}>Transporte</option>
-                            <option value={3}>Moradia</option>
-                            <option value={4}>Saúde</option>
-                            <option value={5}>Lazer</option>
-                            <option value={6}>Educação</option>
-                            <option value={7}>Compras</option>
-                            <option value={8}>Salário</option>
-                            <option value={9}>Trabalho</option>
-                            <option value={10}>Investimentos</option>
-                            <option value={11}>Outros</option>
-                        </select>
-                    </section>
-                    <section>
-                        <label htmlFor="">Data *</label>
-                        <input className="formdeadicionarinput" type="date" onChange={dataEvent} value={dataTransacao} />
-                    </section>
-                </div>
-
-            </div>
-
-                <div className="formdeadicionarcaixa3">
-                    <button className="receitas" id={checarCorBotaoTransacao("receita")} onClick={() => { botaoTipoEvent("receita") }} >Receita</button>
-                    <button className="despesas" id={checarCorBotaoTransacao("despesa")} onClick={() => { botaoTipoEvent("despesa") }} >Despesa</button>
-                    <button className="adicionar">+</button>
+                        <section>
+                            <label htmlFor="">Descrição </label>
+                            <input className="formdeadicionarinput" type="text" onChange={descricaoEvent} value={descricaoTransacao} placeholder={"Ex: " + mensagems[categoriaTransacao][Math.floor(Math.random() * mensagems[categoriaTransacao].length)]} />
+                        </section>
+                        <section>
+                                <label className="categoria" htmlFor="">Categoria *</label>
+                            <select
+                                name="Selectcategory"
+                                className="formdeadicionarinput"
+                                onChange={categoriaEvent}
+                                value={categoriaTransacao}
+                            >
+                                <option value={0} disabled>Selecione uma categoria</option>
+                                <option value={1}>Alimentação</option>
+                                <option value={2}>Transporte</option>
+                                <option value={3}>Moradia</option>
+                                <option value={4}>Saúde</option>
+                                <option value={5}>Lazer</option>
+                                <option value={6}>Educação</option>
+                                <option value={7}>Compras</option>
+                                <option value={8}>Salário</option>
+                                <option value={9}>Trabalho</option>
+                                <option value={10}>Investimentos</option>
+                                <option value={11}>Outros</option>
+                            </select>
+                        </section>
                 </div>
             </div>
+
+            <div className="formdeadicionarcaixa3">
+                <button className="receitas" id={checarCorBotaoTransacao("receita")} onClick={() => { botaoTipoEvent("receita") }} >Receita </button>
+                <button className="despesas" id={checarCorBotaoTransacao("despesa")} onClick={() => { botaoTipoEvent("despesa") }} >Despesa </button>
+                <button className="adicionar" onClick={criarTransacao}>+</button>
+            </div>
+        </div>
     )
 }

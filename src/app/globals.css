@@ -5,15 +5,72 @@
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
     user-select: none;
 }
+
 body {
     min-height: 100vh;
     background: linear-gradient(135deg, #080603 0%, #161008 50%, #1d1309 100%);
     color: #f5e6d3;
     line-height: 1.6;
     display: flex;
-    scrollbar-width:none;
+    scrollbar-width: none;
     align-items: center;
     justify-content: center;
+}
+
+.listadetransacoes {
+    width: 97%;
+    max-width: 97%;
+    background: linear-gradient(135deg, rgba(80, 50, 25, 0.4) 0%, rgba(60, 40, 20, 0.5) 100%);
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    display: flex;
+    max-height: 30%;
+    border-radius: 1rem;
+    height: 30%;
+    flex-direction: column;
+}
+
+.evolucaodosaldocaixa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 97%;
+    max-width: 98%;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(80, 50, 25, 0.4) 0%, rgba(60, 40, 20, 0.5) 100%);
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    border: solid rgba(210, 180, 140, 0.3) 1px;
+}
+
+.listadetransacoescaixa {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.listadetransacoescaixa2 {
+    width: clamp(280, 50%, 350);
+    max-width: 350px;
+    min-width: 280;
+    aspect-ratio: 1 / 1;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.graficopizza {
+    width: 100%;
+    aspect-ratio: 1/1;
+    padding: 20px;
+}
+
+.listadetransacoescaixa3 {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
 }
 
 main {
@@ -22,6 +79,20 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+.listadetransacoes h1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 1rem;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    color: transparent;
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 700;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -35,6 +106,152 @@ main {
     flex-direction: column;
     width: 100%;
 }
+
+/* ESTILIZAÇÃO MELHORADA PARA TABELAS */
+table {
+    width: 100%;
+    max-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid rgba(210, 180, 140, 0.3);
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(60, 40, 20, 0.4) 0%, rgba(40, 26, 13, 0.5) 100%);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+thead {
+    border: none;
+    margin-bottom: 0;
+    width: 100%;
+    box-shadow: 0px 0px 20px black;
+    background: linear-gradient(135deg, rgba(101, 67, 33, 0.25) 0%, rgba(60, 40, 20, 0.35) 50%, rgba(40, 26, 13, 0.45) 100%);
+    backdrop-filter: blur(15px);
+}
+
+tbody {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    align-items: center;
+    gap: 0.1rem;
+    height: 100%;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+tbody th {
+    margin: 0.2rem;
+}
+
+.trtitle {
+    width: 100%;
+    display: flex;
+    border: none;
+    padding: 0;
+    flex-direction: row;
+    background: transparent;
+}
+
+.trtitle th {
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: transparent;
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(210, 180, 140, 0.3);
+}
+
+tr {
+    display: flex;
+    width: 100%;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 0.1rem 0;
+}
+
+tr:hover {
+    background: linear-gradient(135deg, rgba(120, 80, 40, 0.2) 0%, rgba(80, 50, 25, 0.3) 100%);
+    transform: translateX(2px);
+}
+
+th {
+    display: flex;
+    width: 38%;
+    align-self: center;
+    flex-direction: column;
+    padding: 0.8rem 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+}
+
+/* Cabeçalho da tabela */
+thead th {
+    font-weight: 700;
+    color: #daa520;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(210, 180, 140, 0.4);
+    background: rgba(60, 40, 20, 0.3);
+}
+
+.trtitle
+
+/* Células do corpo */
+tbody th {
+    height: auto;
+    min-height: 3rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #f5e6d3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(40, 26, 13, 0.3);
+    border: 1px solid rgba(210, 180, 140, 0.1);
+    transition: all 0.3s ease;
+}
+
+tbody th:hover {
+    background: rgba(80, 50, 25, 0.4);
+    border-color: rgba(210, 180, 140, 0.3);
+}
+
+/* Estilo para linhas pares e ímpares */
+tbody tr:nth-child(even) {
+    background: rgba(50, 32, 16, 0.1);
+}
+
+tbody tr:nth-child(odd) {
+    background: rgba(40, 26, 13, 0.05);
+}
+
+/* Scrollbar personalizada para tbody */
+tbody::-webkit-scrollbar {
+    width: 6px;
+}
+
+tbody::-webkit-scrollbar-track {
+    background: rgba(40, 26, 13, 0.3);
+    border-radius: 3px;
+}
+
+tbody::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #8b4513 0%, #daa520 100%);
+    border-radius: 3px;
+}
+
+tbody::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #daa520 0%, #8b4513 100%);
+}
+
 
 .encapsulador {
     width: 100%;
@@ -62,9 +279,11 @@ main {
     height: clamp(70px, 12vw, 110px);
     transition: all 0.3s ease;
 }
-option{
+
+option {
     cursor: pointer;
 }
+
 .xarutodiv {
     width: 100%;
     display: flex;
@@ -142,27 +361,19 @@ option{
     height: clamp(20px, 5vw, 24px);
 }
 
-.graficoPizza {
-    display: flex;
-    justify-content: center;
-    margin-top: clamp(150px, 25vw, 300px);
-    width: 100%;
-}
-
 .espacinho {
     height: clamp(70px, 12vw, 110px);
     width: 100%;
 }
 
 .caixa {
-    width: 97%;
-    max-width: 97%;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
     background-color: transparent;
-    overflow: hidden;
     transition: all 0.5s ease;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: row;
     border-radius: 16px;
 }
@@ -283,6 +494,13 @@ option{
     filter: brightness(1.2);
 }
 
+#caixastats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+}
+
 .valoresstats {
     background: linear-gradient(135deg, rgba(101, 67, 33, 0.25) 0%, rgba(60, 40, 20, 0.35) 50%, rgba(40, 26, 13, 0.45) 100%);
     backdrop-filter: blur(15px);
@@ -290,12 +508,10 @@ option{
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 97%;
+    width: 96%;
     top: 0;
     left: 0;
     border: 1px solid rgba(210, 180, 140, 0.3);
-    overflow-x: hidden;
-    overflow-y: hidden;
     scrollbar-width: none;
     max-width: 97%;
     transition: all 0.5s ease;
@@ -346,7 +562,7 @@ option {
 
 .evolucaodosaldoitem:hover {
     scale: 1.08;
-    text-shadow:1px 1px 23px rgba(255, 217, 0, 0.3);
+    text-shadow: 1px 1px 23px rgba(255, 217, 0, 0.3);
 }
 
 .evolucaodosaldocaixa h1 {
@@ -363,9 +579,10 @@ option {
     font-weight: 700;
 }
 
-.evolucaodosaldocaixa {
+.evolucaodosaldocaixa5 .evolucaodosaldocaixa {
     width: 100%;
     display: flex;
+    margin-top: 0.5rem;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -501,7 +718,6 @@ input {
     margin-left: 0.5rem;
 
     display: flex;
-    font-family: 'Courier New', Courier, monospace;
     align-self: flex-start;
     justify-self: center;
     font-weight: 600;
@@ -536,7 +752,8 @@ input {
     border: 1px solid rgba(50, 205, 50, 0.4);
 }
 
-.saldopositivo, .saldonegativo {
+.saldopositivo,
+.saldonegativo {
     left: 0;
     display: flex;
     justify-self: center;
@@ -586,36 +803,70 @@ input {
     background: linear-gradient(135deg, #3b1d07 0%, #4d2709 100%);
     border-radius: 10px;
 }
-.evolucaodosaldocaixa5{
+
+.evolucaodosaldocaixa5 {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
-    order:0;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+    width: 100%;
+    order: 0;
 }
-.evolucaodosaldocaixa5 p{
+
+.evolucaodosaldocaixa5 p {
     font-size: 0.7rem;
 }
-.evolucaodosaldocaixa5 label{
+
+.evolucaodosaldocaixa5 label {
     color: transparent;
     background-clip: text;
     font-weight: bolder;
 }
-.saldoevolucaodespesa{
-    background:linear-gradient(to top right, rgb(255, 5, 5), rgb(157, 92, 92));
+
+.saldoevolucaodespesa {
+    background: linear-gradient(to top right, rgb(255, 5, 5), rgb(157, 92, 92));
 }
-.saldoevolucaoreceita{
+
+.saldoevolucaoreceita {
     background: linear-gradient(to top left, lime, rgb(98, 171, 98));
 }
+
+#transacao_recebimento {
+    color: #32cd32;
+}
+
+#transacao_recebimento:hover {
+    text-shadow: 0px 0px 10px #32cd32;
+}
+
+#transacao_pagamento {
+    color: #dc143c
+}
+
+#transacao_pagamento:hover {
+    text-shadow: 0px 0px 10px #dc143c;
+}
+
+#transacao_hoje {
+    color: #ffd700;
+}
+
+th:hover {
+    color: gold;
+    text-shadow: 0px 0px 10px gold;
+}
+
 /* Media Queries remain the same */
-@media (max-width: 768px) {
+@media (max-width: 830px) {
     .xarutodiv {
         justify-content: space-between;
     }
-    
+
     .saldopositivo {
         font-size: 1.3rem;
     }
-    
+
     .xarutodiv2 {
         gap: 8px;
     }
@@ -623,30 +874,45 @@ input {
     .adicionar {
         max-width: 10%;
     }
-    
+
     .caixa {
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
+        width: 100%;
         flex-direction: column;
     }
-    
+
     .valoresstats {
         display: flex;
-        height: 100%;
+        height: 24vh;
     }
+
     .valoresstats p {
         font-size: 2rem;
     }
-    
+
     .valoresstats img {
         scale: 0.9;
     }
-    
+
     .evolucaodosaldocaixa2 {
         width: 70%;
         margin: 0.5rem;
+    }
+
+    .trtitle th {
+        border-radius: 0.3rem;
+        font-size: 1.1rem;
+    }
+
+    #caixastats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 98%;
+        max-width: 98%;
     }
 }
 
@@ -656,9 +922,18 @@ input {
         padding: 0 8px;
     }
 
+    .trtitle th {
+        border-radius: 0.3rem;
+        font-size: 0.8rem;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        padding: none;
+    }
+
     .xarutotitulo {
         font-size: 3rem;
     }
+
     .valoresstats img {
         height: 3rem;
         width: 3rem;
@@ -668,9 +943,9 @@ input {
     }
 
     .subtitulo {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
-    
+
     .formdeadicionarcaixa {
         width: 100%;
         border-radius: 16px;
@@ -682,16 +957,38 @@ input {
     }
 
     .evolucaodosaldocaixa2 {
-        width: 97%;
+        width: 95%;
     }
-    
-    .evolucaodosaldocaixa2 label, p {
+
+    tbody th {
+        font-size: 0.53rem;
+    }
+
+    .evolucaodosaldocaixa2 label,
+    p {
         scale: 0.7;
         flex-direction: row;
     }
-    
+
     .evolucaodosaldocaixa2 {
         height: 5rem;
+    }
+    .xarutodiv{
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: row;
+    }
+    .evolucaodosaldocaixa {
+        width: 95%;
+        max-width: 95%;
+        padding: 0.5rem;
+        margin-top: 1.2rem;
+    }
+    .saldoevolucaoreceita{
+        margin-left: 1.2rem;
+    }
+    .saldoevolucaodespesa{
+        margin-right: 1.2rem;
     }
 
     .valoresstats {
@@ -699,33 +996,46 @@ input {
         justify-content: center;
         align-items: center;
         text-align: center;
-        height: 100%;
+        height: 19vh;
     }
-    
+
     .valoresstats p {
         font-size: 1.6rem;
     }
+
     .saldopositivo,
     .saldonegativo {
         font-size: 1rem;
         margin-bottom: 1rem;
     }
-    
+    .xarutotituloicone{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
     .formdeadicionarinput {
         padding: 0.3rem;
         scale: 0.85;
     }
-    
+
     .formdeadicionarcaixa label {
         scale: 0.8;
     }
-    .adicionar{
+
+    .adicionar {
         text-align: center;
         padding: 1rem;
     }
-    .valoresstats section{
+
+    .valoresstats section {
         margin: 0;
         gap: 0;
         display: flex;
+    }
+        #caixastats{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 98%;
+        max-width: 98%;
     }
 }
