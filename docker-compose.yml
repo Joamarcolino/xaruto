@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: xaruto
+      POSTGRES_PASSWORD: xaruto
+      POSTGRES_DB: xaruto
+    ports:
+      - "5433:5432"
+    volumes:
+      - xaruto_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  xaruto_postgres_data:

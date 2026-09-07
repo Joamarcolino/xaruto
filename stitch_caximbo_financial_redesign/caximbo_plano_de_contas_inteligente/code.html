@@ -1,0 +1,831 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>Xaruto - Gestão Financeira Familiar</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-error":"#ffffff","on-error-container":"#93000a","on-tertiary":"#ffffff","surface-container-lowest":"#ffffff","primary":"#003820","surface-container-high":"#dce9ff","inverse-on-surface":"#eaf1ff","secondary":"#545f73","on-primary-container":"#84c39b","tertiary-container":"#004b74","on-secondary-fixed":"#111c2d","background":"#f8f9ff","tertiary":"#003351","outline":"#707971","on-background":"#0b1c30","on-tertiary-container":"#68bcff","on-secondary-fixed-variant":"#3c475a","inverse-surface":"#213145","on-tertiary-fixed-variant":"#004b73","on-secondary-container":"#586377","primary-container":"#0f5132","secondary-container":"#d5e0f8","surface-container":"#e5eeff","primary-fixed":"#b0f1c7","surface-container-highest":"#d3e4fe","tertiary-fixed-dim":"#93ccff","on-surface":"#0b1c30","secondary-fixed":"#d8e3fb","surface":"#f8f9ff","surface-tint":"#2d6a48","surface-variant":"#d3e4fe","on-tertiary-fixed":"#001d31","outline-variant":"#c0c9c0","on-primary":"#ffffff","surface-bright":"#f8f9ff","tertiary-fixed":"#cce5ff","error-container":"#ffdad6","on-surface-variant":"#404942","secondary-fixed-dim":"#bcc7de","surface-container-low":"#eff4ff","on-primary-fixed-variant":"#0f5132","inverse-primary":"#95d4ac","primary-fixed-dim":"#95d4ac","error":"#ba1a1a","surface-dim":"#cbdbf5","on-secondary":"#ffffff","on-primary-fixed":"#002111"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-base":"1rem","space-2xl":"3rem","gutter-mobile":"1rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xxs":"0.125rem","max-width-content":"80rem","gutter-desktop":"1.5rem","space-md":"0.75rem","space-xl":"2rem","space-sm":"0.5rem"},"fontFamily":{"body-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"numeric-hero":["JetBrains Mono"],"numeric-table":["JetBrains Mono"],"label-caps":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},"fontSize":{"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"40px","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"numeric-hero":["28px",{"lineHeight":"36px","fontWeight":"600"}],"numeric-table":["13px",{"lineHeight":"18px","fontWeight":"500"}],"label-caps":["11px",{"lineHeight":"16px","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-base flex items-center gap-space-sm"><img alt="Logo Xaruto Gestão Contábil" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Viru-pZdFdi8BDK3iTay0Lu9ySdqHC0RyycCSDg5Ym-kMTVPNoCOnMKxKqjpx-0dbfUPKRGcHJepo4NrXZy2SKRF180zpe3lPRwtmWFREUq6QuaocwipZFxXYeTI2W7_jKv5Qxnc2_d96ygNBcC4S6J2I7fpQsPP-v0-5aSK7kJ23j4tszQJYRLRC1N8GH6cAwzUQxXZ9eDNEyAvE-J-lXS5ladjRdFKKbqG6TRVD1--tfwHk5Yi9UgugB"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none">Xaruto</span><span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider mt-space-xxs">Gestão Contábil</span></div></div><div class="px-space-base py-space-sm"><button class="w-full flex items-center justify-center gap-space-xs py-space-sm px-space-base rounded-lg bg-primary text-on-primary font-headline-sm text-body-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-primary-container hover:text-on-primary-container transition-all" type="button"><span class="material-symbols-outlined text-lg leading-none">add_circle</span><span class="">Novo Lançamento</span></button></div><nav class="flex flex-col gap-space-xxs px-space-sm mt-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-headline-sm rounded-lg" data-path="plano-de-contas" href="#"><span class="material-symbols-outlined text-xl">account_tree</span><span class="font-body-md text-body-md">Plano de Contas</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="carnes-e-recorrentes" href="#"><span class="material-symbols-outlined text-xl">event_repeat</span><span class="font-body-md text-body-md">Carnês &amp; Recorrentes</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="dre-detalhado" href="#"><span class="material-symbols-outlined text-xl">table_chart</span><span class="font-body-md text-body-md">DRE Detalhado</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="balanco-patrimonial" href="#"><span class="material-symbols-outlined text-xl">account_balance</span><span class="font-body-md text-body-md">Balanço Patrimonial</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="configuracoes-e-familia" href="#"><span class="material-symbols-outlined text-xl">settings</span><span class="font-body-md text-body-md">Configurações &amp; Família</span></a></nav></div><div class="p-space-base"><div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center justify-between"><span class="font-label-caps text-label-caps text-secondary uppercase">Saúde Contábil</span><span class="w-2 h-2 rounded-full bg-primary-container inline-block" title="Sincronizado"></span></div><div class="flex flex-col gap-space-xxs mt-space-xxs"><span class="font-body-sm text-body-sm text-on-surface-variant">Lucro Líquido (Mês)</span><span class="font-numeric-table text-numeric-table text-primary font-bold">+ R$ 6.420,50</span></div><div class="flex flex-col gap-space-xxs"><span class="font-body-sm text-body-sm text-on-surface-variant">Patrimônio Líquido</span><span class="font-numeric-table text-numeric-table text-on-surface font-bold">R$ 488.210,00</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-space-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-xs bg-surface-container-low px-space-xs py-space-xxs rounded-lg"><button aria-label="Mês Anterior" class="p-space-xxs rounded hover:bg-surface-container hover:text-on-surface text-secondary transition-colors" type="button"><span class="material-symbols-outlined text-lg leading-none">chevron_left</span></button><div class="flex items-center gap-space-xs px-space-xs"><span class="font-headline-sm text-body-md text-on-surface font-semibold">Outubro 2024</span><span class="inline-flex items-center px-space-xs py-space-xxs rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-label-caps leading-none">Aberto</span></div><button aria-label="Próximo Mês" class="p-space-xxs rounded hover:bg-surface-container hover:text-on-surface text-secondary transition-colors" type="button"><span class="material-symbols-outlined text-lg leading-none">chevron_right</span></button><button class="ml-space-xxs px-space-xs py-space-xxs rounded font-body-sm text-body-sm text-secondary hover:bg-surface-container hover:text-on-surface transition-colors font-medium" type="button">Mês Atual</button></div><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs bg-surface-container-low px-space-md py-space-xs rounded-lg text-secondary text-body-sm"><span class="material-symbols-outlined text-base">search</span><span class="font-body-sm text-body-sm">Buscar conta, transação...</span><kbd class="ml-space-sm font-label-caps text-label-caps bg-surface-container px-space-xs rounded text-on-surface-variant">Ctrl+K</kbd></div><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-base text-primary">group</span><span class="font-medium">Família Silva &amp; Ramos</span><span class="material-symbols-outlined text-base">expand_more</span></div><button aria-label="Alternar Tema" class="p-space-xs rounded-lg hover:bg-surface-container hover:text-on-surface text-secondary transition-colors" type="button"><span class="material-symbols-outlined text-xl">dark_mode</span></button><div class="relative flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD44sL94NtTFJYoX4ex4c9FBt-M9F0rYY5lLdOxvyfKPg1LZjVvAfXzPwuN8_BKmse4TBz-Ls8fil_JzQGB8dcAu6APvoRnVKN_aDQI8uT8d9sSUtD1KT_qTrVR84zyhornZxS78gfeUj8JWuCSbMYwT3Nc9wzfkebnVRKlGrQkQXzFJpaOReUHIeMJPI2_ZIgvVRmOrOsB_jYBqGLPq2dLFigGSmg3wJIORvPGlFfN6BUdFO1v-CJYWg"><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-lowest" title="Conta sincronizada"></span></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen px-space-lg py-space-lg max-w-max-width-content mx-auto"><div class="flex flex-col w-full">
+<!-- Top Command & Status Bar -->
+<div class="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xxs">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-caps text-label-caps">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+          PADRÃO IFRS CONTÁBIL
+        </span>
+<span class="text-secondary font-label-caps text-label-caps">Exercício 2024</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Plano de Contas Contábil</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xxs">Estrutura hierárquica das contas de receitas, despesas, ativos e passivos da família</p>
+</div>
+<!-- Quick Actions -->
+<div class="flex flex-wrap items-center gap-space-xs w-full xl:w-auto">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-all font-body-md text-body-md shadow-sm" id="toggle-all-btn" type="button">
+<span class="material-symbols-outlined text-lg">unfold_more</span>
+<span id="toggle-all-label" class="">Recolher Todos</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-headline-sm text-body-md shadow-sm" onclick="openModal('folder-modal')" type="button">
+<span class="material-symbols-outlined text-lg text-secondary">create_new_folder</span>
+<span class="">+ Nova Pasta/Grupo</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-base py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all font-headline-sm text-body-md shadow-sm" onclick="openModal('account-modal')" type="button">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span class="">+ Nova Conta</span>
+</button>
+</div>
+</div>
+<!-- Search & Category Tabs Strip -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm mb-space-lg flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-md">
+<!-- Macro Category Tabs -->
+<div class="flex items-center gap-space-xxs overflow-x-auto pb-space-xxs md:pb-0 scrollbar-none">
+<button class="tab-category active flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-headline-sm text-body-md transition-colors whitespace-nowrap" type="button">
+<span class="">Despesas (Grupo 3)</span>
+<span class="font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container text-[11px]">24</span>
+</button>
+<button class="tab-category flex items-center gap-space-xs px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors whitespace-nowrap" type="button">
+<span class="">Receitas (Grupo 4)</span>
+<span class="font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px]">11</span>
+</button>
+<button class="tab-category flex items-center gap-space-xs px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors whitespace-nowrap" type="button">
+<span class="">Ativos (Grupo 1)</span>
+<span class="font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px]">16</span>
+</button>
+<button class="tab-category flex items-center gap-space-xs px-space-md py-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-md text-body-md transition-colors whitespace-nowrap" type="button">
+<span class="">Passivos (Grupo 2)</span>
+<span class="font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px]">8</span>
+</button>
+</div>
+<!-- Quick Search Input -->
+<div class="relative min-w-[260px] max-w-sm">
+<span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-secondary text-lg">filter_alt</span>
+<input class="w-full pl-9 pr-8 py-space-xs bg-surface-container-low rounded-lg text-on-surface placeholder:text-secondary text-body-sm font-body-sm focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132] transition-all" id="tree-search" placeholder="Ex: 3.1.02 ou Moradia..." type="text">
+<button class="hidden absolute right-space-sm top-1/2 -translate-y-1/2 text-secondary hover:text-on-surface" id="clear-search" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Main Grid: Tree Structure (8 cols) + Detail Panel (4 cols) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Tree Hierarchy Column (Left) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Group 3.1 Macro Card -->
+<section class="group-macro-card bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all" data-macro="3.1">
+<!-- Level 1 Header -->
+<header class="p-space-md bg-surface-container-low/70 flex items-center justify-between gap-space-sm cursor-pointer select-none" onclick="toggleSection('section-3-1')">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200" id="chevron-3-1">expand_more</span>
+<div class="w-2.5 h-6 rounded-full bg-primary"></div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Grupo Macro 3.1</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps">12 contas</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">DESPESAS OPERACIONAIS FIXAS</h2>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="text-right">
+<span class="font-body-sm text-body-sm text-secondary block">Total Acumulado</span>
+<span class="font-numeric-table text-numeric-table font-bold text-on-surface">R$ 7.430,00</span>
+</div>
+<button aria-label="Adicionar subpasta" class="p-1 rounded hover:bg-surface-container text-secondary hover:text-primary transition-colors" onclick="event.stopPropagation(); openModal('folder-modal');" title="Nova Subpasta em 3.1" type="button">
+<span class="material-symbols-outlined text-lg">create_new_folder</span>
+</button>
+</div>
+</header>
+<!-- Macro Body (Subfolders) -->
+<div class="macro-content p-space-md flex flex-col gap-space-md" id="section-3-1">
+<!-- Subfolder 3.1.01: Moradia & Habitação -->
+<div class="subfolder-node pl-space-xs relative" data-code="3.1.01">
+<!-- Vertical guide line -->
+<div class="absolute left-2.5 top-8 bottom-2 w-0.5 bg-surface-container-high rounded-full"></div>
+<!-- Subfolder Header -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer" onclick="toggleSubfolder('subfolder-3-1-01')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base transition-transform duration-200" id="sub-chevron-3-1-01">folder_open</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">3.1.01</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Moradia &amp; Habitação</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-secondary font-label-caps text-label-caps">4 subcontas</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-table text-numeric-table text-on-surface font-semibold">R$ 3.850,00</span>
+<button aria-label="Ações da Pasta" class="p-1 rounded text-secondary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Leaf Accounts (Level 3) -->
+<div class="ml-space-md mt-space-xxs flex flex-col gap-space-xxs" id="subfolder-3-1-01">
+<!-- Account 3.1.01.01 (Selected State) -->
+<article class="account-row active-account flex items-center justify-between p-space-xs rounded-lg bg-surface-container-low text-on-surface transition-all cursor-pointer group shadow-sm" onclick="selectAccount(this, '3.1.01.01', 'Condomínio Edifício Jardins', 'R$ 950,00', 'Despesa Fixa', 'Família / Residência', 'Devedora', [920, 920, 950, 950, 950, 950])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity" title="Arrastar para reordenar">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">3.1.01.01</span>
+<span class="font-body-md text-body-md text-on-surface truncate font-medium">Condomínio Edifício Jardins</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-caps text-[10px]">Fixa</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-bold text-on-surface">R$ 950,00</span>
+<div class="flex items-center gap-space-xxs">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); openEditModal('3.1.01.01', 'Condomínio Edifício Jardins', '950,00')" title="Editar conta" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); openModal('account-modal')" title="Criar subconta" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation();" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Account 3.1.01.02 -->
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.1.01.02', 'Energia Elétrica (Enel)', 'R$ 380,00', 'Despesa Variável', 'Consumo Residencial', 'Devedora', [410, 395, 340, 360, 420, 380])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.1.01.02</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Energia Elétrica (Enel)</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-[10px]">Variável</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 380,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.1.01.02', 'Energia Elétrica (Enel)', '380,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Account 3.1.01.03 -->
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.1.01.03', 'Internet Fibra &amp; Telefonia', 'R$ 190,00', 'Despesa Fixa', 'Comunicação', 'Devedora', [190, 190, 190, 190, 190, 190])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.1.01.03</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Internet Fibra &amp; Telefonia</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-caps text-[10px]">Fixa</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 190,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.1.01.03', 'Internet Fibra &amp; Telefonia', '190,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Account 3.1.01.04 -->
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.1.01.04', 'Financiamento Imobiliário Caixa', 'R$ 2.330,00', 'Amortização de Passivo', 'Habitação Própria', 'Devedora', [2380, 2370, 2355, 2345, 2335, 2330])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.1.01.04</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Financiamento Imobiliário Caixa</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-[10px]">Amortização</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 2.330,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.1.01.04', 'Financiamento Imobiliário Caixa', '2.330,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Subfolder 3.1.02: Saúde & Bem-estar -->
+<div class="subfolder-node pl-space-xs relative" data-code="3.1.02">
+<!-- Vertical guide line -->
+<div class="absolute left-2.5 top-8 bottom-2 w-0.5 bg-surface-container-high rounded-full"></div>
+<!-- Subfolder Header -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer" onclick="toggleSubfolder('subfolder-3-1-02')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base transition-transform duration-200" id="sub-chevron-3-1-02">folder_open</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">3.1.02</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Saúde &amp; Bem-estar</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-secondary font-label-caps text-label-caps">2 subcontas</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-table text-numeric-table text-on-surface font-semibold">R$ 1.980,00</span>
+<button aria-label="Ações da Pasta" class="p-1 rounded text-secondary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Leaf Accounts -->
+<div class="ml-space-md mt-space-xxs flex flex-col gap-space-xxs" id="subfolder-3-1-02">
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.1.02.01', 'Plano de Saúde Bradesco Seguros', 'R$ 1.600,00', 'Despesa Fixa / Saúde', 'Família Geral', 'Devedora', [1600, 1600, 1600, 1600, 1600, 1600])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.1.02.01</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Plano de Saúde Bradesco Seguros</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-caps text-[10px]">Fixa</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 1.600,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.1.02.01', 'Plano de Saúde Bradesco Seguros', '1.600,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.1.02.02', 'Farmácia &amp; Medicamentos Contínuos', 'R$ 380,00', 'Despesa Variável', 'Saúde &amp; Tratamentos', 'Devedora', [290, 310, 450, 280, 340, 380])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.1.02.02</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Farmácia &amp; Medicamentos Contínuos</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-[10px]">Variável</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 380,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.1.02.02', 'Farmácia &amp; Medicamentos Contínuos', '380,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- Group 3.2 Macro Card -->
+<section class="group-macro-card bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all" data-macro="3.2">
+<!-- Level 1 Header -->
+<header class="p-space-md bg-surface-container-low/70 flex items-center justify-between gap-space-sm cursor-pointer select-none" onclick="toggleSection('section-3-2')">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-secondary transition-transform duration-200" id="chevron-3-2">expand_more</span>
+<div class="w-2.5 h-6 rounded-full bg-tertiary"></div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-wider">Grupo Macro 3.2</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-label-caps">12 contas</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">DESPESAS VARIÁVEIS &amp; ESTILO DE VIDA</h2>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="text-right">
+<span class="font-body-sm text-body-sm text-secondary block">Total Acumulado</span>
+<span class="font-numeric-table text-numeric-table font-bold text-on-surface">R$ 3.800,00</span>
+</div>
+<button aria-label="Adicionar subpasta" class="p-1 rounded hover:bg-surface-container text-secondary hover:text-primary transition-colors" onclick="event.stopPropagation(); openModal('folder-modal');" title="Nova Subpasta em 3.2" type="button">
+<span class="material-symbols-outlined text-lg">create_new_folder</span>
+</button>
+</div>
+</header>
+<!-- Macro Body -->
+<div class="macro-content p-space-md flex flex-col gap-space-md" id="section-3-2">
+<!-- Subfolder 3.2.01: Alimentação & Supermercado -->
+<div class="subfolder-node pl-space-xs relative" data-code="3.2.01">
+<div class="absolute left-2.5 top-8 bottom-2 w-0.5 bg-surface-container-high rounded-full"></div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer" onclick="toggleSubfolder('subfolder-3-2-01')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base transition-transform duration-200" id="sub-chevron-3-2-01">folder_open</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">3.2.01</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Alimentação &amp; Supermercado</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-secondary font-label-caps text-label-caps">2 subcontas</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-table text-numeric-table text-on-surface font-semibold">R$ 2.450,00</span>
+<button aria-label="Ações da Pasta" class="p-1 rounded text-secondary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</div>
+<div class="ml-space-md mt-space-xxs flex flex-col gap-space-xxs" id="subfolder-3-2-01">
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.2.01.01', 'Supermercado Pão de Açúcar &amp; Feira', 'R$ 1.950,00', 'Despesa Variável', 'Alimentação Básica', 'Devedora', [1800, 1890, 2100, 1920, 2010, 1950])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.2.01.01</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Supermercado Pão de Açúcar &amp; Feira</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-[10px]">Variável</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 1.950,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.2.01.01', 'Supermercado Pão de Açúcar &amp; Feira', '1.950,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.2.01.02', 'Açougue &amp; Padaria Artesanal', 'R$ 500,00', 'Despesa Variável', 'Alimentação Diária', 'Devedora', [440, 480, 520, 490, 510, 500])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.2.01.02</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Açougue &amp; Padaria Artesanal</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-[10px]">Variável</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 500,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.2.01.02', 'Açougue &amp; Padaria Artesanal', '500,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+<!-- Subfolder 3.2.02: Lazer, Restaurantes & Viagens -->
+<div class="subfolder-node pl-space-xs relative" data-code="3.2.02">
+<div class="absolute left-2.5 top-8 bottom-2 w-0.5 bg-surface-container-high rounded-full"></div>
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer" onclick="toggleSubfolder('subfolder-3-2-02')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-base transition-transform duration-200" id="sub-chevron-3-2-02">folder_open</span>
+<span class="font-label-caps text-label-caps text-secondary font-bold">3.2.02</span>
+<span class="font-headline-sm text-body-md text-on-surface font-semibold">Lazer, Restaurantes &amp; Viagens</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-secondary font-label-caps text-label-caps">1 subconta</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-numeric-table text-numeric-table text-on-surface font-semibold">R$ 1.350,00</span>
+<button aria-label="Ações da Pasta" class="p-1 rounded text-secondary hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-base">more_vert</span>
+</button>
+</div>
+</div>
+<div class="ml-space-md mt-space-xxs flex flex-col gap-space-xxs" id="subfolder-3-2-02">
+<article class="account-row flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-low transition-all cursor-pointer group" onclick="selectAccount(this, '3.2.02.01', 'Restaurantes, Cafés &amp; Delivery', 'R$ 1.350,00', 'Despesa Discricionária', 'Lazer &amp; Convívio', 'Devedora', [1100, 1420, 1250, 1600, 1310, 1350])">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="material-symbols-outlined text-secondary text-sm cursor-grab opacity-40 group-hover:opacity-100 transition-opacity">drag_indicator</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-caps text-label-caps text-secondary">3.2.02.01</span>
+<span class="font-body-md text-body-md text-on-surface truncate">Restaurantes, Cafés &amp; Delivery</span>
+<span class="ml-space-xs px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-caps text-[10px]">Variável</span>
+</div>
+<div class="flex items-center gap-space-md flex-shrink-0">
+<span class="font-numeric-table text-numeric-table font-semibold text-on-surface">R$ 1.350,00</span>
+<div class="flex items-center gap-space-xxs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-secondary hover:text-primary hover:bg-surface-container" onclick="event.stopPropagation(); openEditModal('3.2.02.01', 'Restaurantes, Cafés &amp; Delivery', '1.350,00')" type="button">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+<button class="p-1 rounded text-secondary hover:text-on-surface hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-sm">more_vert</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Hint Note -->
+<div class="flex items-center gap-space-xs px-space-md py-space-sm rounded-lg bg-surface-container-low text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-primary">info</span>
+<span class="">As contas de resultado alimentam automaticamente o Demonstrativo do Resultado do Exercício (DRE). Para transferências patrimoniais, vincule contas do Grupo 1 ou 2.</span>
+</div>
+</div>
+<!-- Sticky Account Detail Panel (Right 4 cols) -->
+<aside class="xl:col-span-4 sticky top-20 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Header of Selected Account -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Conta Selecionada</span>
+<div class="flex items-center gap-space-xs mt-space-xxs">
+<span class="font-numeric-table text-numeric-table font-bold text-primary px-1.5 py-0.5 rounded bg-primary-fixed" id="panel-account-code">3.1.01.01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps text-secondary">Ativa no DRE</span>
+</div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" onclick="openEditModal(document.getElementById('panel-account-code').textContent, document.getElementById('panel-account-name').textContent, document.getElementById('panel-account-balance').textContent.replace('R$ ', ''))" title="Editar propriedades" type="button">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface tracking-tight leading-tight" id="panel-account-name">Condomínio Edifício Jardins</h3>
+<!-- Balance display -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col">
+<span class="font-body-sm text-body-sm text-secondary">Saldo no Mês Vigente (Outubro 2024)</span>
+<div class="flex items-baseline justify-between mt-space-xxs">
+<span class="font-numeric-hero text-numeric-hero font-bold text-on-surface" id="panel-account-balance">R$ 950,00</span>
+<span class="font-label-caps text-label-caps text-primary flex items-center font-semibold">
+<span class="material-symbols-outlined text-sm">trending_flat</span> 0,0%
+            </span>
+</div>
+</div>
+<!-- 6-Month Sparkline Card -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Histórico Últimos 6 Meses</span>
+<span class="font-label-caps text-label-caps text-secondary">Mai — Out</span>
+</div>
+<!-- Micro Bar Chart Visualization -->
+<div class="h-28 w-full flex items-end justify-between gap-2 pt-2 px-1">
+<!-- Bar 1: Mai -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity">920</span>
+<div class="w-full bg-surface-container hover:bg-primary/70 rounded-t transition-all" style="height: 72%;"></div>
+<span class="font-label-caps text-[10px] text-secondary">Mai</span>
+</div>
+<!-- Bar 2: Jun -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity">920</span>
+<div class="w-full bg-surface-container hover:bg-primary/70 rounded-t transition-all" style="height: 72%;"></div>
+<span class="font-label-caps text-[10px] text-secondary">Jun</span>
+</div>
+<!-- Bar 3: Jul -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity">950</span>
+<div class="w-full bg-surface-container hover:bg-primary/70 rounded-t transition-all" style="height: 78%;"></div>
+<span class="font-label-caps text-[10px] text-secondary">Jul</span>
+</div>
+<!-- Bar 4: Ago -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity">950</span>
+<div class="w-full bg-surface-container hover:bg-primary/70 rounded-t transition-all" style="height: 78%;"></div>
+<span class="font-label-caps text-[10px] text-secondary">Ago</span>
+</div>
+<!-- Bar 5: Set -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-secondary opacity-0 group-hover:opacity-100 transition-opacity">950</span>
+<div class="w-full bg-surface-container hover:bg-primary/70 rounded-t transition-all" style="height: 78%;"></div>
+<span class="font-label-caps text-[10px] text-secondary">Set</span>
+</div>
+<!-- Bar 6: Out (Current) -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end group">
+<span class="font-numeric-table text-[10px] text-primary font-bold opacity-100">950</span>
+<div class="w-full bg-primary rounded-t transition-all shadow-sm" style="height: 78%;"></div>
+<span class="font-label-caps text-[10px] text-primary font-bold">Out</span>
+</div>
+</div>
+</div>
+<!-- Ledger Attributes List -->
+<div class="flex flex-col gap-space-xs py-space-xs">
+<div class="flex items-center justify-between py-1.5">
+<span class="font-body-sm text-body-sm text-secondary">Natureza do Saldo</span>
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold" id="panel-nature">Devedora (D)</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-body-sm text-body-sm text-secondary">Tipo Contábil</span>
+<span class="font-body-sm text-body-sm text-on-surface" id="panel-category">Despesa Operacional Fixa</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-body-sm text-body-sm text-secondary">Centro de Custo</span>
+<span class="font-body-sm text-body-sm text-on-surface" id="panel-costcenter">Família / Residência</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-body-sm text-body-sm text-secondary">Recorrência Estimada</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-caps text-[11px]">
+<span class="material-symbols-outlined text-xs">event_repeat</span> Mensal (dia 10)
+            </span>
+</div>
+</div>
+<!-- Context Action Buttons -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full py-space-xs px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-headline-sm text-body-md transition-all flex items-center justify-center gap-space-xs shadow-sm" onclick="openEditModal(document.getElementById('panel-account-code').textContent, document.getElementById('panel-account-name').textContent, document.getElementById('panel-account-balance').textContent.replace('R$ ', ''))" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+<span class="">Editar Configurações da Conta</span>
+</button>
+<button class="w-full py-space-xs px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-secondary hover:text-on-surface font-body-md text-body-md transition-all flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span class="">Extrato da Conta (12 Lançamentos)</span>
+</button>
+</div>
+</div>
+<!-- Family Entity Quick Info Badge -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-xl">account_tree</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Estrutura Ativa</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold truncate">Xaruto Contabilidade Familiar v4.2</span>
+<span class="font-body-sm text-body-sm text-secondary">59 contas cadastradas • 4 grupos</span>
+</div>
+</div>
+</aside>
+</div>
+<!-- MODAL 1: Nova Conta / Editar Conta -->
+<dialog class="backdrop:bg-slate-950/40 backdrop:backdrop-blur-sm rounded-xl p-0 shadow-xl bg-surface-container-lowest text-on-surface w-full max-w-lg overflow-hidden m-auto" id="account-modal">
+<div class="flex flex-col">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">add_chart</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="account-modal-title">Cadastrar Nova Conta</h3>
+<span class="font-body-sm text-body-sm text-secondary">Adicione uma conta-folha ao plano contábil</span>
+</div>
+</div>
+<button class="p-1 rounded-lg text-secondary hover:bg-surface-container hover:text-on-surface transition-colors" onclick="closeModal('account-modal')" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- Modal Form Body -->
+<form class="p-space-lg flex flex-col gap-space-md" id="account-form" onsubmit="event.preventDefault(); handleSaveAccount();">
+<!-- Parent Account Select -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-parent-folder">Pasta / Grupo Pai</label>
+<div class="relative">
+<select class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-parent-folder">
+<option value="3.1.01">3.1.01 - Moradia &amp; Habitação</option>
+<option value="3.1.02">3.1.02 - Saúde &amp; Bem-estar</option>
+<option value="3.2.01">3.2.01 - Alimentação &amp; Supermercado</option>
+<option value="3.2.02">3.2.02 - Lazer, Restaurantes &amp; Viagens</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-space-sm">
+<!-- Code -->
+<div class="col-span-1 flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-code">Código Contábil</label>
+<input class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-numeric-table text-numeric-table rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-code" required="" type="text" value="3.1.01.05">
+</div>
+<!-- Natureza -->
+<div class="col-span-2 flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-nature">Natureza do Saldo</label>
+<select class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-nature">
+<option value="Devedora">Devedora (Despesas / Bens / Ativos)</option>
+<option value="Credora">Credora (Receitas / Obrigações / Passivos)</option>
+</select>
+</div>
+</div>
+<!-- Account Name -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-name">Nome Descritivo da Conta</label>
+<input class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-name" placeholder="Ex: Manutenção Predial e Reparos" required="" type="text">
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Cost Center -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-costcenter">Centro de Custo</label>
+<input class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-costcenter" type="text" value="Família / Residência">
+</div>
+<!-- Tag / Behavior -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-tag">Classificação</label>
+<select class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-tag">
+<option value="Despesa Fixa">Despesa Fixa</option>
+<option value="Despesa Variável">Despesa Variável</option>
+<option value="Amortização">Amortização de Empréstimo</option>
+<option value="Investimento">Aporte de Patrimônio</option>
+</select>
+</div>
+</div>
+<!-- Initial Estimate Balance -->
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase" for="modal-account-balance">Orçamento Mensal Previsto (R$)</label>
+<div class="relative">
+<span class="absolute left-space-md top-1/2 -translate-y-1/2 font-numeric-table text-secondary">R$</span>
+<input class="w-full pl-10 pr-space-md py-space-xs bg-surface-container-low text-on-surface font-numeric-table text-numeric-table rounded-lg focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_#0f5132]" id="modal-account-balance" placeholder="0,00" type="text">
+</div>
+</div>
+<!-- Modal Footer Actions -->
+<div class="flex items-center justify-between pt-space-sm mt-space-sm">
+<button class="hidden text-error hover:bg-error-container hover:text-on-error-container px-space-md py-space-xs rounded-lg font-body-md text-body-md transition-colors" id="modal-delete-btn" onclick="handleDeleteAccount()" type="button">
+            Excluir Conta
+          </button>
+<div class="flex items-center gap-space-xs ml-auto">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-md text-body-md" onclick="closeModal('account-modal')" type="button">
+              Cancelar
+            </button>
+<button class="px-space-lg py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors font-headline-sm text-body-md shadow-sm" type="submit">
+              Salvar Conta
+            </button>
+</div>
+</div>
+</form>
+</div>
+</dialog>
+<!-- MODAL 2: Nova Pasta / Grupo Macro -->
+<dialog class="backdrop:bg-slate-950/40 backdrop:backdrop-blur-sm rounded-xl p-0 shadow-xl bg-surface-container-lowest text-on-surface w-full max-w-md overflow-hidden m-auto" id="folder-modal">
+<div class="flex flex-col">
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-lg bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">create_new_folder</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nova Pasta ou Subgrupo</h3>
+<span class="font-body-sm text-body-sm text-secondary">Organize conjuntos de contas afins</span>
+</div>
+</div>
+<button class="p-1 rounded-lg text-secondary hover:bg-surface-container transition-colors" onclick="closeModal('folder-modal')" type="button">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<form class="p-space-lg flex flex-col gap-space-md" onsubmit="event.preventDefault(); closeModal('folder-modal');">
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase">Grupo Contábil Superior</label>
+<select class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:shadow-[0_0_0_2px_#0f5132]">
+<option>3.1 - DESPESAS OPERACIONAIS FIXAS</option>
+<option>3.2 - DESPESAS VARIÁVEIS &amp; ESTILO DE VIDA</option>
+<option>1.0 - ATIVOS CIRCULANTES &amp; INVESTIMENTOS</option>
+<option>2.0 - PASSIVOS E EXIGIBILIDADES</option>
+</select>
+</div>
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase">Nome da Pasta</label>
+<input class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:shadow-[0_0_0_2px_#0f5132]" placeholder="Ex: Educação &amp; Cursos dos Filhos" required="" type="text">
+</div>
+<div class="flex flex-col gap-space-xxs">
+<label class="font-label-caps text-label-caps text-secondary uppercase">Código Sugerido</label>
+<input class="w-full px-space-md py-space-xs bg-surface-container-low text-on-surface font-numeric-table text-numeric-table rounded-lg focus:outline-none focus:shadow-[0_0_0_2px_#0f5132]" type="text" value="3.1.03">
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-sm mt-space-sm">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-body-md text-body-md" onclick="closeModal('folder-modal')" type="button">
+            Cancelar
+          </button>
+<button class="px-space-lg py-space-xs rounded-lg bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-colors font-headline-sm text-body-md shadow-sm" type="submit">
+            Criar Pasta
+          </button>
+</div>
+</form>
+</div>
+</dialog>
+</div>
+<!-- Inline Interaction Logic -->
+<script>
+  // Section Collapse / Expand
+  function toggleSection(sectionId) {
+    const el = document.getElementById(sectionId);
+    const chevron = document.getElementById(sectionId.replace('section-', 'chevron-'));
+    if (!el) return;
+    
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+      if (chevron) chevron.style.transform = 'rotate(0deg)';
+    } else {
+      el.classList.add('hidden');
+      if (chevron) chevron.style.transform = 'rotate(-90deg)';
+    }
+  }
+
+  // Subfolder Collapse / Expand
+  function toggleSubfolder(folderId) {
+    const el = document.getElementById(folderId);
+    const icon = document.getElementById(folderId.replace('subfolder-', 'sub-chevron-'));
+    if (!el) return;
+
+    if (el.classList.contains('hidden')) {
+      el.classList.remove('hidden');
+      if (icon) icon.textContent = 'folder_open';
+    } else {
+      el.classList.add('hidden');
+      if (icon) icon.textContent = 'folder';
+    }
+  }
+
+  // Toggle All Tree Nodes
+  let allExpanded = true;
+  document.getElementById('toggle-all-btn')?.addEventListener('click', () => {
+    allExpanded = !allExpanded;
+    const macroContents = document.querySelectorAll('.macro-content');
+    const chevrons = document.querySelectorAll('[id^="chevron-"]');
+    const subfolders = document.querySelectorAll('[id^="subfolder-"]');
+    const subIcons = document.querySelectorAll('[id^="sub-chevron-"]');
+    const label = document.getElementById('toggle-all-label');
+
+    if (!allExpanded) {
+      macroContents.forEach(el => el.classList.add('hidden'));
+      chevrons.forEach(c => c.style.transform = 'rotate(-90deg)');
+      subfolders.forEach(s => s.classList.add('hidden'));
+      subIcons.forEach(i => i.textContent = 'folder');
+      if (label) label.textContent = 'Expandir Todos';
+    } else {
+      macroContents.forEach(el => el.classList.remove('hidden'));
+      chevrons.forEach(c => c.style.transform = 'rotate(0deg)');
+      subfolders.forEach(s => s.classList.remove('hidden'));
+      subIcons.forEach(i => i.textContent = 'folder_open');
+      if (label) label.textContent = 'Recolher Todos';
+    }
+  });
+
+  // Account Selection and Synchronizing Right Drawer
+  function selectAccount(element, code, name, balance, tag, costCenter, nature, history) {
+    document.querySelectorAll('.account-row').forEach(row => {
+      row.classList.remove('bg-surface-container-low', 'shadow-sm');
+    });
+    element.classList.add('bg-surface-container-low', 'shadow-sm');
+
+    document.getElementById('panel-account-code').textContent = code;
+    document.getElementById('panel-account-name').textContent = name;
+    document.getElementById('panel-account-balance').textContent = balance;
+    document.getElementById('panel-category').textContent = tag;
+    document.getElementById('panel-costcenter').textContent = costCenter;
+    document.getElementById('panel-nature').textContent = nature === 'Devedora' ? 'Devedora (D)' : 'Credora (C)';
+  }
+
+  // Quick Filter Filter Logic
+  const searchInput = document.getElementById('tree-search');
+  const clearBtn = document.getElementById('clear-search');
+
+  searchInput?.addEventListener('input', (e) => {
+    const term = e.target.value.toLowerCase().trim();
+    if (term.length > 0) {
+      clearBtn?.classList.remove('hidden');
+    } else {
+      clearBtn?.classList.add('hidden');
+    }
+
+    const rows = document.querySelectorAll('.account-row');
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      if (text.includes(term)) {
+        row.classList.remove('hidden');
+      } else {
+        row.classList.add('hidden');
+      }
+    });
+
+    // Make sure containers are visible if children match
+    if (term.length > 0) {
+      document.querySelectorAll('.macro-content').forEach(mc => mc.classList.remove('hidden'));
+      document.querySelectorAll('[id^="subfolder-"]').forEach(sf => sf.classList.remove('hidden'));
+    }
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.dispatchEvent(new Event('input'));
+    }
+  });
+
+  // Category Tab Switches (Visual demonstration)
+  document.querySelectorAll('.tab-category').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab-category').forEach(t => {
+        t.classList.remove('bg-primary', 'text-on-primary', 'font-headline-sm');
+        t.classList.add('text-on-surface-variant', 'font-body-md');
+        const badge = t.querySelector('span:last-child');
+        if (badge) {
+          badge.className = 'font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px]';
+        }
+      });
+      tab.classList.add('bg-primary', 'text-on-primary', 'font-headline-sm');
+      tab.classList.remove('text-on-surface-variant', 'font-body-md');
+      const badge = tab.querySelector('span:last-child');
+      if (badge) {
+        badge.className = 'font-numeric-table text-numeric-table px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary-container text-[11px]';
+      }
+    });
+  });
+
+  // Modal Open/Close handlers
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+      document.getElementById('account-modal-title').textContent = 'Cadastrar Nova Conta';
+      document.getElementById('modal-delete-btn')?.classList.add('hidden');
+      modal.showModal();
+    }
+  }
+
+  function openEditModal(code, name, balance) {
+    const modal = document.getElementById('account-modal');
+    if (modal) {
+      document.getElementById('account-modal-title').textContent = 'Editar Conta Contábil';
+      document.getElementById('modal-account-code').value = code;
+      document.getElementById('modal-account-name').value = name;
+      document.getElementById('modal-account-balance').value = balance;
+      document.getElementById('modal-delete-btn')?.classList.remove('hidden');
+      modal.showModal();
+    }
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) modal.close();
+  }
+
+  function handleSaveAccount() {
+    closeModal('account-modal');
+  }
+
+  function handleDeleteAccount() {
+    if (confirm('Deseja realmente arquivar esta conta contábil?')) {
+      closeModal('account-modal');
+    }
+  }
+</script></main></div>
+
+</body></html>

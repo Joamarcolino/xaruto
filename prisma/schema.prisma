@@ -1,0 +1,288 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Tenant / usuário / convite ----------
+
+model Tenant {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  memberships      Membership[]
+  invites          Invite[]
+  accounts         Account[]
+  transactions     Transaction[]
+  installmentPlans InstallmentPlan[]
+  recurrenceRules  RecurrenceRule[]
+  bankConnections  BankConnection[]
+  accountMatchRules AccountMatchRule[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+
+  memberships Membership[]
+}
+
+enum MembershipRole {
+  OWNER
+  MEMBER
+}
+
+model Membership {
+  id        String         @id @default(cuid())
+  userId    String
+  tenantId  String
+  role      MembershipRole @default(MEMBER)
+  createdAt DateTime       @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tenantId])
+}
+
+model Invite {
+  id         String         @id @default(cuid())
+  tenantId   String
+  email      String
+  token      String         @unique
+  role       MembershipRole @default(MEMBER)
+  expiresAt  DateTime
+  acceptedAt DateTime?
+  createdAt  DateTime       @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+}
+
+// ---------- Plano de contas ----------
+
+enum AccountType {
+  RECEITA
+  DESPESA
+  ATIVO
+  PASSIVO
+  PATRIMONIO_LIQUIDO
+}
+
+model Account {
+  id                 String      @id @default(cuid())
+  tenantId           String
+  name               String
+  type               AccountType
+  parentId           String?
+  isPinned           Boolean     @default(false)
+  isRoot             Boolean     @default(false)
+  isAccumulatedResult Boolean    @default(false)
+  sortOrder          Int         @default(0)
+  openingBalance     Decimal     @default(0) @db.Decimal(14, 2)
+  openingBalanceDate DateTime?
+  isArchived         Boolean     @default(false)
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+
+  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  parent   Account?  @relation("AccountHierarchy", fields: [parentId], references: [id])
+  children Account[] @relation("AccountHierarchy")
+
+  transactionsFrom Transaction[] @relation("FromAccount")
+  transactionsTo   Transaction[] @relation("ToAccount")
+
+  installmentPlansFrom InstallmentPlan[] @relation("InstallmentFromAccount")
+  installmentPlansTo   InstallmentPlan[] @relation("InstallmentToAccount")
+
+  recurrenceRulesFrom RecurrenceRule[] @relation("RecurrenceFromAccount")
+  recurrenceRulesTo   RecurrenceRule[] @relation("RecurrenceToAccount")
+
+  bankAccounts      BankAccount[]
+  accountMatchRules AccountMatchRule[]
+
+  @@index([tenantId, type])
+  @@index([parentId])
+}
+
+// ---------- Lançamentos ----------
+
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+}
+
+enum TransactionSource {
+  MANUAL
+  RECURRING
+  INSTALLMENT
+  BANK_SYNC
+}
+
+model Transaction {
+  id                String            @id @default(cuid())
+  tenantId          String
+  description       String
+  amount            Decimal           @db.Decimal(14, 2)
+  date              DateTime
+  confirmedAt       DateTime?
+  status            TransactionStatus @default(PENDING)
+  fromAccountId     String
+  toAccountId       String
+  source            TransactionSource @default(MANUAL)
+  recurrenceRuleId  String?
+  installmentPlanId String?
+  installmentNumber Int?
+  installmentTotal  Int?
+  createdByUserId   String
+  notes             String?
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  tenant          Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  fromAccount     Account          @relation("FromAccount", fields: [fromAccountId], references: [id])
+  toAccount       Account          @relation("ToAccount", fields: [toAccountId], references: [id])
+  recurrenceRule  RecurrenceRule?  @relation(fields: [recurrenceRuleId], references: [id])
+  installmentPlan InstallmentPlan? @relation(fields: [installmentPlanId], references: [id])
+  bankTransaction BankTransaction?
+
+  @@index([tenantId, date])
+  @@index([tenantId, toAccountId, date])
+  @@index([tenantId, fromAccountId, date])
+}
+
+// ---------- Parcelamento (carnês) ----------
+
+model InstallmentPlan {
+  id                String   @id @default(cuid())
+  tenantId          String
+  code              String
+  title             String
+  totalInstallments Int
+  fromAccountId     String
+  toAccountId       String
+  startDate         DateTime
+  createdAt         DateTime @default(now())
+
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  fromAccount  Account       @relation("InstallmentFromAccount", fields: [fromAccountId], references: [id])
+  toAccount    Account       @relation("InstallmentToAccount", fields: [toAccountId], references: [id])
+  transactions Transaction[]
+
+  @@index([tenantId])
+}
+
+// ---------- Recorrência ----------
+
+enum RecurrenceFrequency {
+  WEEKLY
+  MONTHLY
+  YEARLY
+}
+
+model RecurrenceRule {
+  id              String              @id @default(cuid())
+  tenantId        String
+  createdByUserId String
+  description     String
+  amount          Decimal             @db.Decimal(14, 2)
+  frequency       RecurrenceFrequency @default(MONTHLY)
+  dayOfMonth      Int?
+  fromAccountId   String
+  toAccountId     String
+  startDate       DateTime
+  endDate         DateTime?
+  horizonMonths   Int                 @default(12)
+  lastGeneratedAt DateTime?
+  createdAt       DateTime            @default(now())
+
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  fromAccount  Account       @relation("RecurrenceFromAccount", fields: [fromAccountId], references: [id])
+  toAccount    Account       @relation("RecurrenceToAccount", fields: [toAccountId], references: [id])
+  transactions Transaction[]
+
+  @@index([tenantId])
+}
+
+// ---------- Open Finance (Pluggy) ----------
+
+model BankConnection {
+  id              String    @id @default(cuid())
+  tenantId        String
+  pluggyItemId    String    @unique
+  institutionName String
+  status          String
+  createdByUserId String
+  lastSyncedAt    DateTime?
+  createdAt       DateTime  @default(now())
+
+  tenant   Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  accounts BankAccount[]
+
+  @@index([tenantId])
+}
+
+model BankAccount {
+  id               String   @id @default(cuid())
+  bankConnectionId String
+  pluggyAccountId  String   @unique
+  name             String
+  type             String
+  linkedAccountId  String?
+  currentBalance   Decimal? @db.Decimal(14, 2)
+  currency         String   @default("BRL")
+
+  bankConnection   BankConnection    @relation(fields: [bankConnectionId], references: [id], onDelete: Cascade)
+  linkedAccount    Account?          @relation(fields: [linkedAccountId], references: [id])
+  bankTransactions BankTransaction[]
+  accountMatchRules AccountMatchRule[]
+}
+
+enum BankTransactionStatus {
+  UNMATCHED
+  MATCHED
+  IGNORED
+}
+
+model BankTransaction {
+  id                   String                 @id @default(cuid())
+  bankAccountId        String
+  pluggyTransactionId  String                 @unique
+  description          String
+  amount               Decimal                @db.Decimal(14, 2)
+  date                 DateTime
+  status               BankTransactionStatus  @default(UNMATCHED)
+  matchedTransactionId String?                @unique
+  rawPayload           Json
+  createdAt            DateTime               @default(now())
+
+  bankAccount        BankAccount  @relation(fields: [bankAccountId], references: [id], onDelete: Cascade)
+  matchedTransaction Transaction? @relation(fields: [matchedTransactionId], references: [id])
+
+  @@index([bankAccountId, status])
+}
+
+model AccountMatchRule {
+  id              String   @id @default(cuid())
+  tenantId        String
+  bankAccountId   String?
+  pattern         String
+  targetAccountId String
+  priority        Int      @default(0)
+  createdAt       DateTime @default(now())
+
+  tenant        Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  bankAccount   BankAccount? @relation(fields: [bankAccountId], references: [id], onDelete: Cascade)
+  targetAccount Account      @relation(fields: [targetAccountId], references: [id])
+
+  @@index([tenantId])
+}
